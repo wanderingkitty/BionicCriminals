@@ -5,7 +5,7 @@
 .selection-page {
 	display:flex;
 	flex-direction: column;
-	background-color:rgba(255, 255, 255, 0.1);
+	/* background-color:rgba(255, 255, 255, 0.0); */
 	margin-top: 19em;
 	margin-left: 2em;
 	margin-right: 2em;

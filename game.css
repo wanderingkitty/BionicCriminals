@@ -13,13 +13,13 @@
 .hangman-section {
 	display:flex;
 	flex-direction: column;
-	background-color:rgba(255, 255, 255, 0.1);
-	margin-top: 2em;
+	/* background-color:rgba(255, 255, 255, 0.00); */
+	margin-top: 3em;
 	margin-left: 2em;
 	margin-right: 2em;
 	padding: 2em;
-	padding-top: 5em;
-	padding-bottom: 5em;
+	padding-top: 3em;
+	padding-bottom: 3em;
 	/* align-items:center; */
 	border-radius:6px;
 	text-align: center;
@@ -63,9 +63,11 @@
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
     color: #622EAA;
     background-color: white;
+    padding: 0.4em 0;
 
 }
 
