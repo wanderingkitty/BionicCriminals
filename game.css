@@ -1,0 +1,123 @@
+.game-screen {
+    display: none;
+}
+
+.show-game {
+    display: block;
+}
+
+.hangman {
+    filter: invert(1);
+    width: 100%;
+}
+.hangman-section {
+	display:flex;
+	flex-direction: column;
+	background-color:rgba(255, 255, 255, 0.1);
+	margin-top: 2em;
+	margin-left: 2em;
+	margin-right: 2em;
+	padding: 2em;
+	padding-top: 5em;
+	padding-bottom: 5em;
+	/* align-items:center; */
+	border-radius:6px;
+	text-align: center;
+    /* margin-bottom: 0; */
+}
+
+.user-score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2em;
+    margin-top: 2em;
+}
+
+#the-word {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+  }
+  #the-word p {
+    margin: 0;
+    width: 2em;
+    border-bottom: 1px solid #f7ebec;
+  }
+
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(11, auto);
+    grid-template-rows: repeat(3, auto); /* Added grid-template-rows property */
+    grid-gap: 3px;
+    /* margin-top: 3em; */
+    padding: 0.4em;
+    border-radius: 6px;
+    margin: 2em 2em;
+}
+
+.key {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #622EAA;
+    background-color: white;
+
+}
+
+.key:nth-child(23) {
+    grid-row: 3;
+    grid-column: 3;
+}
+.key:nth-child(24) {
+    grid-row: 3;
+    grid-column: 4;
+}
+.key:nth-child(25) {
+    grid-row: 3;
+    grid-column: 5;
+}
+.key:nth-child(26) {
+    grid-row: 3;
+    grid-column: 6;
+}
+.key:nth-child(27) {
+    grid-row: 3;
+    grid-column: 7;
+}
+.key:nth-child(28) {
+    grid-row: 3;
+    grid-column: 8;
+}
+.key:nth-child(29) {
+    grid-row: 3;
+    grid-column: 9;
+}
+
+.menu {
+    padding: 0 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3em;
+    margin-bottom: 1em;
+
+    
+}
+
+.menu img {
+    width: 2em;
+    height: 2em;
+    filter: invert(1);
+}
+
+.menu-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.2em;
+}
