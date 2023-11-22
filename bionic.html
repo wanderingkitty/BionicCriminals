@@ -8,13 +8,14 @@
         <link rel="stylesheet" href="bionic.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="/selection.css">
         <link
             href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
             rel="stylesheet"
         />
     </head>
     <body>
-        <section class="start-screen">
+        <section class="start-screen" id="start-display">
             <div class="img-section">
                 <img
                     class="hangman-gif"
@@ -22,8 +23,17 @@
                     alt="hangman getting hanged"
                 />
             </div>
-            <h1>HANGMAN</h1>
-            <button class="play-btn">PLAY</button>
+            <h1>THE HANGMAN</h1>
+            <button class="play-btn">START</button>
+        </section>
+
+        <section class="selection-page" id="selection">
+            <label for="user-input"> ANVÄNDARNAMN </label>
+            <input id="user-input" type="text" />
+            <div class="level-btn">
+                <button id="try-brn">LÄTT</button>
+                <button id="hard-btn">SVÅRT</button>
+            </div>
         </section>
     </body>
 </html>

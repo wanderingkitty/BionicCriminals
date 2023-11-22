@@ -11,7 +11,7 @@ body {
     background-repeat: no-repeat;
     background-size: 200% 200%, 200% 200%, cover;
     color:#F7EBEC;
-
+    height: 100vh;
 }
 .hangman-gif {
     height: 500px;
@@ -20,7 +20,6 @@ body {
 
 .img-section {
     margin: 0 auto;
-
 }
 
 .start-screen {
@@ -54,6 +53,5 @@ h1 {
     background: #fff;
     transition: 0.1s;
 }
-
 
 
