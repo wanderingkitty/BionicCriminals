@@ -41,10 +41,14 @@
   justify-content: center;
   gap: 1em;
 }
-#the-word p {
+.hide-word {
   margin: 0;
   width: 2em;
   border-bottom: 1px solid #f7ebec;
+  color: transparent;
+}
+.show-word {
+  color: #f7ebec;
 }
 
 #keyboard {
