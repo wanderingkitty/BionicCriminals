@@ -17,3 +17,4 @@ easyBtn.addEventListener('click', ()=> {
 	selectScreen.classList.remove('show')
 	gameScreen.classList.add('show-game')	
 })
+
