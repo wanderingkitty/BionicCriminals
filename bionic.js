@@ -21,6 +21,7 @@ easyBtn.addEventListener('click', ()=> {
 const userName = document.querySelector('#user-input')
 const saveBtn = document.querySelector('.save-btn')
 const key = 'Username'
+const playerName = document.querySelector('#user-name')
 
 let json = localStorage.getItem(key)
 
@@ -32,13 +33,15 @@ let json = localStorage.getItem(key)
 		console.log('Nåt gick fel. Försök spara igen.')
 	}
 
-	saveBtn.addEventListener('click', () => {
+	easyBtn.addEventListener('click', () => {
 		let user = userName.value
 		let data = {
 			user: user
 		}
-		
+		playerName.innerText = userName.value
 		let json = JSON.stringify(data)
 	
 	localStorage.setItem(key, json)
 })
+
+
