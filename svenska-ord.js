@@ -118682,4 +118682,8 @@ export const words = [
 	"övre",
 	"övrig",
 	"övärld"
+<<<<<<< HEAD
 ]
+=======
+]
+>>>>>>> origin/Anton
