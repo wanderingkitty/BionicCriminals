@@ -18,3 +18,27 @@ easyBtn.addEventListener('click', ()=> {
 	gameScreen.classList.add('show-game')	
 })
 
+const userName = document.querySelector('#user-input')
+const saveBtn = document.querySelector('.save-btn')
+const key = 'Username'
+
+let json = localStorage.getItem(key)
+
+	try {
+		let object = JSON.parse(json)
+		userName.value = object.user
+	}
+	catch {
+		console.log('Nåt gick fel. Försök spara igen.')
+	}
+
+	saveBtn.addEventListener('click', () => {
+		let user = userName.value
+		let data = {
+			user: user
+		}
+		
+		let json = JSON.stringify(data)
+	
+	localStorage.setItem(key, json)
+})
