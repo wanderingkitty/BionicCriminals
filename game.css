@@ -13,13 +13,13 @@
 .hangman-section {
 	display:flex;
 	flex-direction: column;
-	background-color:rgba(255, 255, 255, 0.1);
-	margin-top: 2em;
+	/* background-color:rgba(255, 255, 255, 0.00); */
+	margin-top: 3em;
 	margin-left: 2em;
 	margin-right: 2em;
 	padding: 2em;
-	padding-top: 5em;
-	padding-bottom: 5em;
+	padding-top: 3em;
+	padding-bottom: 3em;
 	/* align-items:center; */
 	border-radius:6px;
 	text-align: center;
@@ -63,9 +63,11 @@
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
     color: #622EAA;
     background-color: white;
+    padding: 0.4em 0;
 
 }
 
@@ -120,4 +122,28 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 0.2em;
+}
+
+/*  */
+.swing {
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -20px;
+    float:left;
+}
+
+.swing:after{
+    position: absolute;  
+    width: 20px; height: 20px;  
+    border: 1px solid #999;
+    top: -10px; left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+}
+
+ 
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
 }

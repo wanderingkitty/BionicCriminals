@@ -7,11 +7,10 @@
 body {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
-    background-image: linear-gradient(168deg, #2E2E2E -9.6%, #622EAA 43.81%, #373739 100.44%);
+    background-image: linear-gradient(168deg, #2e2e2e -9.6%, #622EAA 43.81%, #373739 100.44%);
     background-repeat: no-repeat;
     background-size: 200% 200%, 200% 200%, cover;
     color:#F7EBEC;
-    /* height: 100vh; */
 }
 .hangman-gif {
     height: 500px;
@@ -52,5 +51,29 @@ h1 {
     color: #622EAA;
     background: #fff;
     transition: 0.1s;
+}
+
+/* Gung-effekt */
+.swing {
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -20px;
+    float:left;
+}
+
+.swing:after{
+    position: absolute;  
+    width: 20px; height: 20px;  
+    border: 1px solid #999;
+    top: -10px; left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+}
+
+ 
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
 }
 
