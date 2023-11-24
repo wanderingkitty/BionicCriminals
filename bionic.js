@@ -141,15 +141,19 @@ var container = document.querySelector("#the-word");
 // String.fromCharCode(charCode);
 
 document.addEventListener("keydown", (e) => {
-  const pressedChar = e.key.toUpperCase();
-
-  const button = keyButtons.find((item) => item.char === pressedChar);
-  if (button) {
-    button.button.disabled = true;
-    button.button.classList.add("key-disable");
-    initGame(button.button, pressedChar);
+  const pressedChar = e.key.toUpperCase()
+  
+  const isLetter = pressedChar >= 'A' && pressedChar <= 'Ö'
+  
+  if (isLetter) {
+    const button = keyButtons.find((item) => item.char === pressedChar)
+    if (button && !button.button.disabled) {
+      button.button.disabled = true
+      button.button.classList.add("key-disable")
+      initGame(button.button, pressedChar)
+      FinnsInGame(button.button, pressedChar)
+    }
   }
-  console.log(button);
 });
 
 
