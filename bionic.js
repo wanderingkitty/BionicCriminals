@@ -2,7 +2,8 @@
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
 const keyButtons = [];
-const initGame = (button, clickedLetter) => {
+const initGame = (button, keyButtons) => {
+  
   //   console.log(clickedLetter);
 };
 
@@ -48,6 +49,7 @@ playBtn.addEventListener("click", () => {
 const easyBtn = document.querySelector("#try-btn");
 const hardBtn = document.querySelector("#hard-btn");
 let paragraph;
+
 hardBtn.addEventListener("click", () => {
   console.log(slumpaHard);
 
@@ -147,22 +149,36 @@ document.addEventListener("keydown", (e) => {
     button.button.classList.add("key-disable");
     initGame(button.button, pressedChar);
   }
+  console.log(button);
 });
-const FinnsInGame = (button, clickedLetter) => {
-  if (slumpatOrd.includes(clickedLetter)) {
-    paragraph.classList.remove("hide-word");
 
-    console.log(clickedLetter);
-  } else {
-    console.log("finns inte ");
+
+const FinnsInGame = (button, clickedLetter) => {
+
+  let foundInWord = false;
+
+  let paragraph = document.querySelector("#the-word")
+
+  let wordArray = Array.from(slumpatOrd.toUpperCase())
+
+  wordArray.forEach((letter, index) => {
+    if (letter === clickedLetter) {
+      console.log(clickedLetter)
+
+      let letterSpan = paragraph.children[index]
+      if (letterSpan) {
+        letterSpan.classList.add("show-word")
+      }
+
+      foundInWord = true;
+    }
+  })
+
+  if (!foundInWord) {
+    console.log('finns inte')
   }
 };
-words.forEach((words) => {
-  for (let i = 0; i < slumpatOrd.length; i++) {
-    let currentDisplay = "";
-    if (currentDisplay == clickedLetter) {
-      console.log(clickedLetter);
-      paragraph.classList.add("show-word");
-    }
-  }
-});
+
+
+
+
