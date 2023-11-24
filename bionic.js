@@ -103,7 +103,7 @@ import { words } from "./svenska-ord.js";
 
 for (let i = 0; i < words.length; i++) {
 	const currentWord = words[i];
-	if (currentWord.length > 10) {
+	if (currentWord.length >= 10) {
 		lattaOrd.push(currentWord);
 	} else {
 		svåraOrd.push(currentWord);
