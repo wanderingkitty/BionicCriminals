@@ -7,14 +7,14 @@
 }
 
 .hangman {
-  filter: invert(1);
+  /* filter: invert(1); */
   width: 100%;
 }
 .hangman-section {
   display: flex;
   flex-direction: column;
-  /* background-color:rgba(255, 255, 255, 0.00); */
-  margin-top: 3em;
+  /* background-color:rgba(255, 255, 255, 0.04); */
+  margin-top: 2em;
   margin-left: 2em;
   margin-right: 2em;
   padding: 2em;
