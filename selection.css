@@ -14,6 +14,7 @@
 	padding-bottom: 5em;
 	/* align-items:center; */
 	border-radius:6px;
+	justify-content: center;
 	text-align: center;
 	display: none;
 }
@@ -23,13 +24,16 @@ label {
 }
 
 .selection-page input {
-	/* max-width: 15em; */
+	max-width: 35em;
 	margin-top: 1.5em;
 	border-radius:6px;
 	border:2px solid#F7EBEC;
 	background-color:rgba(255, 255, 255, 0);
 	padding: 0.5em;
 	color:#F7EBEC;
+	justify-content: center;
+	align-items:center;
+	text-align: center;
 }
 
 .level-btn > button {
