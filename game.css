@@ -17,13 +17,18 @@
   margin-top: 2em;
   margin-left: 2em;
   margin-right: 2em;
-  padding: 2em;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding: 3em 2em 0em 2em;
+  /* padding-top: 3em; */
+  /* padding-bottom: 3em; */
   /* align-items:center; */
   border-radius: 6px;
   text-align: center;
   /* margin-bottom: 0; */
+}
+
+.guesses {
+  margin-top: 1em;
+  opacity: 0.6;
 }
 
 .user-score {
@@ -39,7 +44,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 1em;
+  gap: 0.5em;
 }
 .hide-word {
   margin: 0;

@@ -105,9 +105,9 @@ import { words } from "./svenska-ord.js";
 
 for (let i = 0; i < words.length; i++) {
   const currentWord = words[i];
-  if (currentWord.length >= 10) {
+  if (currentWord.length >= 10 && currentWord.length <= 13) {
     lattaOrd.push(currentWord);
-  } else {
+  } else if (currentWord.length < 10) {
     svåraOrd.push(currentWord);
   }
 }
@@ -156,7 +156,9 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-
+var count = 0;
+const hangbotImg = document.querySelector(".hangman")
+const countDisplay = document.querySelector(".count");
 const FinnsInGame = (button, clickedLetter) => {
 
   let foundInWord = false;
@@ -180,6 +182,9 @@ const FinnsInGame = (button, clickedLetter) => {
 
   if (!foundInWord) {
     console.log('finns inte')
+    count++;
+    countDisplay.textContent = count;
+    hangbotImg.src = `img/the-hangbot-${count}.png`
   }
 };
 
