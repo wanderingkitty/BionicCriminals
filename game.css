@@ -132,3 +132,9 @@
   align-items: center;
   gap: 0.2em;
 }
+
+/* Loosing page */
+.game-over-screen {
+  display: none;
+}
+

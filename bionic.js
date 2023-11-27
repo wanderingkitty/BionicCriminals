@@ -160,6 +160,7 @@ var count = 0;
 const hangbotImg = document.querySelector(".hangman");
 const countDisplay = document.querySelector(".count");
 const playerScore = document.querySelector("#user-points");
+const gameOverScreen = document.querySelector(".game-over-screen")
 let lattScore = 600;
 playerScore.innerText = lattScore;
 const FinnsInGame = (button, clickedLetter) => {
@@ -168,7 +169,7 @@ const FinnsInGame = (button, clickedLetter) => {
   let paragraph = document.querySelector("#the-word");
 
   let wordArray = Array.from(slumpatOrd.toUpperCase());
-
+  let newLattScore
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
       console.log(clickedLetter);
@@ -183,12 +184,21 @@ const FinnsInGame = (button, clickedLetter) => {
   });
 
   if (!foundInWord) {
-    let newLattScore = (lattScore -= 100);
+    newLattScore = (lattScore -= 100);
     playerScore.innerText = newLattScore;
     console.log("finns inte");
     count++;
     countDisplay.textContent = count;
     hangbotImg.src = `img/the-hangbot-${count}.png`;
+  }
+  if (count == 6) {
+    console.log('game over');
+    gameScreen.classList.remove('show-game')
+    gameOverScreen.style.display = 'block';
+
+    
+
+
   }
 };
 
