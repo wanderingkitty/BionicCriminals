@@ -45,6 +45,7 @@ playBtn.addEventListener("click", () => {
   selectScreen.classList.add("show");
 });
 // Selection page
+const menuFooter = document.querySelector(".menu")
 const easyBtn = document.querySelector("#try-btn");
 const hardBtn = document.querySelector("#hard-btn");
 let paragraph;
@@ -59,6 +60,8 @@ hardBtn.addEventListener("click", () => {
     paragraph.textContent = slumpaHard[i];
     container.appendChild(paragraph);
     paragraph.classList.add("hide-word");
+    menuFooter.style.display = "flex"
+
   }
 });
 
@@ -72,6 +75,8 @@ easyBtn.addEventListener("click", () => {
     paragraph.textContent = slumpatOrd[i];
     container.appendChild(paragraph);
     paragraph.classList.add("hide-word");
+    menuFooter.style.display = "flex"
+
   }
 });
 
@@ -161,6 +166,8 @@ const hangbotImg = document.querySelector(".hangman");
 const countDisplay = document.querySelector(".count");
 const playerScore = document.querySelector("#user-points");
 const gameOverScreen = document.querySelector(".game-over-screen")
+const gameOverWord = document.querySelector("#game-over-word")
+
 let lattScore = 600;
 playerScore.innerText = lattScore;
 const FinnsInGame = (button, clickedLetter) => {
@@ -195,10 +202,7 @@ const FinnsInGame = (button, clickedLetter) => {
     console.log('game over');
     gameScreen.classList.remove('show-game')
     gameOverScreen.style.display = 'block';
-
-    
-
-
+    gameOverWord.innerText = slumpatOrd
   }
 };
 
