@@ -75,32 +75,6 @@ easyBtn.addEventListener("click", () => {
     paragraph.classList.add("hide-word");
   }
 });
-
-const userName = document.querySelector("#user-input");
-const saveBtn = document.querySelector(".save-btn");
-const key = "Username";
-const playerName = document.querySelector("#user-name");
-
-let json = localStorage.getItem(key);
-
-try {
-  let object = JSON.parse(json);
-  userName.value = object.user;
-} catch {
-  console.log("Nåt gick fel. Försök spara igen.");
-}
-
-easyBtn.addEventListener("click", () => {
-  let user = userName.value;
-  let data = {
-    user: user,
-  };
-  playerName.innerText = userName.value;
-  let json = JSON.stringify(data);
-
-  localStorage.setItem(key, json);
-});
-
 import { words } from "./svenska-ord.js";
 
 for (let i = 0; i < words.length; i++) {
@@ -160,7 +134,6 @@ var count = 0;
 const hangbotImg = document.querySelector(".hangman")
 const countDisplay = document.querySelector(".count");
 const FinnsInGame = (button, clickedLetter) => {
-
   let foundInWord = false;
 
   let paragraph = document.querySelector("#the-word")
@@ -187,7 +160,3 @@ const FinnsInGame = (button, clickedLetter) => {
     hangbotImg.src = `img/the-hangbot-${count}.png`
   }
 };
-
-
-
-
