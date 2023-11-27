@@ -80,6 +80,7 @@
 .key-disable {
   background-color: #3D348B;
   color:#f7ebec;
+  /* border: none; */
 }
 
 .key:nth-child(23) {
@@ -113,7 +114,7 @@
 
 .menu {
   padding: 0 2em;
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 3em;
@@ -138,3 +139,16 @@
   display: none;
 }
 
+.game-over-text-container {
+  text-align: center;
+  margin-bottom: 4em;
+}
+
+.game-over-screen h1 {
+  margin-bottom: 0.5em;
+}
+
+.game-over-screen p {
+  padding: 0.3em;
+  font-size: 1.1em;
+}
