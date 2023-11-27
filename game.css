@@ -120,9 +120,9 @@
 }
 
 .menu img {
-  width: 2em;
-  height: 2em;
-  filter: invert(1);
+  width: 3.2em;
+  height: 3.2em;
+  /* filter: invert(1); */
 }
 
 .menu-item {
