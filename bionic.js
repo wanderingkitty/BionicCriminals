@@ -143,7 +143,6 @@ document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains('show-game')) {
     const pressedChar =  event.key.toUpperCase()
 
-  
   const isLetter = pressedChar >= 'A' && pressedChar <= 'Ö'
   
   if (isLetter) {
@@ -161,6 +160,9 @@ document.addEventListener("keydown", (event) => {
 var count = 0;
 const hangbotImg = document.querySelector(".hangman")
 const countDisplay = document.querySelector(".count");
+const playerScore = document.querySelector('#user-points')
+let lattScore = 600
+playerScore.innerText = lattScore
 const FinnsInGame = (button, clickedLetter) => {
 
   let foundInWord = false;
@@ -183,6 +185,8 @@ const FinnsInGame = (button, clickedLetter) => {
   })
 
   if (!foundInWord) {
+    let newLattScore = lattScore -= 100
+    playerScore.innerText = newLattScore
     console.log('finns inte')
     count++;
     countDisplay.textContent = count;
@@ -190,4 +194,16 @@ const FinnsInGame = (button, clickedLetter) => {
   }
 };
 
+
+  
+  // let userScore = localStorage.getItem('user-points')
+//   if (!foundInWord) {
+//   }
+// try {
+//   let object = JSON.parse()
+//   userScore = object.score
+// }
+// catch (error) {
+//   console.log("Error parsing JSON:", error)
+// }
 
