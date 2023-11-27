@@ -77,11 +77,10 @@ easyBtn.addEventListener("click", () => {
 });
 
 const userName = document.querySelector("#user-input");
-const saveBtn = document.querySelector(".save-btn");
-const key = "Username";
+const inputName = "Username";
 const playerName = document.querySelector("#user-name");
 
-let json = localStorage.getItem(key);
+let json = localStorage.getItem(inputName);
 
 try {
   let object = JSON.parse(json);
@@ -98,7 +97,7 @@ easyBtn.addEventListener("click", () => {
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
 
-  localStorage.setItem(key, json);
+  localStorage.setItem(inputName, json);
 });
 
 import { words } from "./svenska-ord.js";
@@ -140,9 +139,10 @@ var container = document.querySelector("#the-word");
 
 // String.fromCharCode(charCode);
 
-document.addEventListener("keydown", (e) => {
-  const pressedChar = e.key.toUpperCase()
-  
+document.addEventListener("keydown", (event) => {
+  if (gameScreen.classList.contains('show-game')) {
+    const pressedChar =  event.key.toUpperCase()
+
   const isLetter = pressedChar >= 'A' && pressedChar <= 'Ö'
   
   if (isLetter) {
@@ -154,11 +154,15 @@ document.addEventListener("keydown", (e) => {
       FinnsInGame(button.button, pressedChar)
     }
   }
+}
 });
 
 var count = 0;
 const hangbotImg = document.querySelector(".hangman")
 const countDisplay = document.querySelector(".count");
+const playerScore = document.querySelector('#user-points')
+let lattScore = 600
+playerScore.innerText = lattScore
 const FinnsInGame = (button, clickedLetter) => {
 
   let foundInWord = false;
@@ -181,6 +185,8 @@ const FinnsInGame = (button, clickedLetter) => {
   })
 
   if (!foundInWord) {
+    let newLattScore = lattScore -= 100
+    playerScore.innerText = newLattScore
     console.log('finns inte')
     count++;
     countDisplay.textContent = count;
@@ -189,5 +195,15 @@ const FinnsInGame = (button, clickedLetter) => {
 };
 
 
-
+  
+  // let userScore = localStorage.getItem('user-points')
+//   if (!foundInWord) {
+//   }
+// try {
+//   let object = JSON.parse()
+//   userScore = object.score
+// }
+// catch (error) {
+//   console.log("Error parsing JSON:", error)
+// }
 
