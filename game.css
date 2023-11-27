@@ -73,12 +73,13 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: #622eaa;
-  background-color: white;
+  color: #3D348B;
+  background-color: #f7ebec;
   padding: 0.4em 0;
 }
 .key-disable {
-  background-color: rgb(128, 127, 129);
+  background-color: #3D348B;
+  color:#f7ebec;
 }
 
 .key:nth-child(23) {

@@ -77,11 +77,10 @@ easyBtn.addEventListener("click", () => {
 });
 
 const userName = document.querySelector("#user-input");
-const saveBtn = document.querySelector(".save-btn");
-const key = "Username";
+const inputName = "Username";
 const playerName = document.querySelector("#user-name");
 
-let json = localStorage.getItem(key);
+let json = localStorage.getItem(inputName);
 
 try {
   let object = JSON.parse(json);
@@ -98,7 +97,7 @@ easyBtn.addEventListener("click", () => {
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
 
-  localStorage.setItem(key, json);
+  localStorage.setItem(inputName, json);
 });
 
 import { words } from "./svenska-ord.js";
@@ -140,8 +139,10 @@ var container = document.querySelector("#the-word");
 
 // String.fromCharCode(charCode);
 
-document.addEventListener("keydown", (e) => {
-  const pressedChar = e.key.toUpperCase()
+document.addEventListener("keydown", (event) => {
+  if (gameScreen.classList.contains('show-game')) {
+    const pressedChar =  event.key.toUpperCase()
+
   
   const isLetter = pressedChar >= 'A' && pressedChar <= 'Ö'
   
@@ -154,6 +155,7 @@ document.addEventListener("keydown", (e) => {
       FinnsInGame(button.button, pressedChar)
     }
   }
+}
 });
 
 var count = 0;
@@ -187,7 +189,5 @@ const FinnsInGame = (button, clickedLetter) => {
     hangbotImg.src = `img/the-hangbot-${count}.png`
   }
 };
-
-
 
 
