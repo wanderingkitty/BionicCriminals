@@ -3,7 +3,6 @@ const keybordDiv = document.querySelector("#keyboard");
 keyboard;
 const keyButtons = [];
 const initGame = (button, keyButtons) => {
-  
   //   console.log(clickedLetter);
 };
 
@@ -75,6 +74,31 @@ easyBtn.addEventListener("click", () => {
     paragraph.classList.add("hide-word");
   }
 });
+
+const userName = document.querySelector("#user-input");
+const inputName = "Username";
+const playerName = document.querySelector("#user-name");
+
+let json = localStorage.getItem(inputName);
+
+try {
+  let object = JSON.parse(json);
+  userName.value = object.user;
+} catch {
+  console.log("Nåt gick fel. Försök spara igen.");
+}
+
+easyBtn.addEventListener("click", () => {
+  let user = userName.value;
+  let data = {
+    user: user,
+  };
+  playerName.innerText = userName.value;
+  let json = JSON.stringify(data);
+
+  localStorage.setItem(inputName, json);
+});
+
 import { words } from "./svenska-ord.js";
 
 for (let i = 0; i < words.length; i++) {
@@ -114,49 +138,51 @@ var container = document.querySelector("#the-word");
 
 // String.fromCharCode(charCode);
 
-document.addEventListener("keydown", (e) => {
-  const pressedChar = e.key.toUpperCase()
-  
-  const isLetter = pressedChar >= 'A' && pressedChar <= 'Ö'
-  
-  if (isLetter) {
-    const button = keyButtons.find((item) => item.char === pressedChar)
-    if (button && !button.button.disabled) {
-      button.button.disabled = true
-      button.button.classList.add("key-disable")
-      initGame(button.button, pressedChar)
-      FinnsInGame(button.button, pressedChar)
+document.addEventListener("keydown", (event) => {
+  if (gameScreen.classList.contains("show-game")) {
+    const pressedChar = event.key.toUpperCase();
+
+    const isLetter = pressedChar >= "A" && pressedChar <= "Ö";
+
+    if (isLetter) {
+      const button = keyButtons.find((item) => item.char === pressedChar);
+      if (button && !button.button.disabled) {
+        button.button.disabled = true;
+        button.button.classList.add("key-disable");
+        initGame(button.button, pressedChar);
+        FinnsInGame(button.button, pressedChar);
+      }
     }
   }
 });
 
 var count = 0;
-const hangbotImg = document.querySelector(".hangman")
+const hangbotImg = document.querySelector(".hangman");
 const countDisplay = document.querySelector(".count");
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
 
-  let paragraph = document.querySelector("#the-word")
+  let paragraph = document.querySelector("#the-word");
 
-  let wordArray = Array.from(slumpatOrd.toUpperCase())
+  let wordArray = Array.from(slumpatOrd.toUpperCase());
 
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
-      console.log(clickedLetter)
+      console.log(clickedLetter);
 
-      let letterSpan = paragraph.children[index]
+      let letterSpan = paragraph.children[index];
       if (letterSpan) {
-        letterSpan.classList.add("show-word")
+        letterSpan.classList.add("show-word");
       }
 
       foundInWord = true;
     }
-  })
+  });
 
   if (!foundInWord) {
-    console.log('finns inte')
+    console.log("finns inte");
     count++;
     countDisplay.textContent = count;
-    hangbotImg.src = `img/the-hangbot-${count}.png`
+    hangbotImg.src = `img/the-hangbot-${count}.png`;
   }
 };
