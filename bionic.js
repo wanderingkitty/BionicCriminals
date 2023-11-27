@@ -195,10 +195,6 @@ const FinnsInGame = (button, clickedLetter) => {
     console.log('game over');
     gameScreen.classList.remove('show-game')
     gameOverScreen.style.display = 'block';
-
-    
-
-
   }
 };
 
