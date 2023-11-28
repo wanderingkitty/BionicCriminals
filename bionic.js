@@ -40,6 +40,15 @@ const easyBtn = document.querySelector("#try-btn");
 const hardBtn = document.querySelector("#hard-btn");
 let paragraph;
 
+function RandomWord() {
+  for (var i = 0; i < slumpatOrd.length; i++) {
+    paragraph = document.createElement("p");
+    paragraph.textContent = slumpatOrd[i];
+    container.appendChild(paragraph);
+    paragraph.classList.add("hide-word");
+    menuFooter.style.display = "flex";
+  }
+}
 hardBtn.addEventListener("click", () => {
   //   console.log(slumpatOrd);
 
@@ -47,30 +56,16 @@ hardBtn.addEventListener("click", () => {
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
   playerScore.innerText = hardScore;
-  for (var i = 0; i < slumpatOrd.length; i++) {
-    paragraph = document.createElement("p");
-    paragraph.textContent = slumpatOrd[i];
-    container.appendChild(paragraph);
-    paragraph.classList.add("hide-word");
-    menuFooter.style.display = "flex";
-  }
+  RandomWord();
   console.log(slumpatOrd);
 });
 
 easyBtn.addEventListener("click", () => {
   slumpatOrd = slumpmassigtOrd();
-
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
   playerScore.innerText = lattScore;
-
-  for (var i = 0; i < slumpatOrd.length; i++) {
-    paragraph = document.createElement("p");
-    paragraph.textContent = slumpatOrd[i];
-    container.appendChild(paragraph);
-    paragraph.classList.add("hide-word");
-    menuFooter.style.display = "flex";
-  }
+  RandomWord();
   console.log(slumpatOrd);
 });
 
