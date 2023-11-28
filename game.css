@@ -77,11 +77,18 @@
   background-color: #f7ebec;
   padding: 0.4em 0;
 }
-.key-disable {
-  background-color: #3D348B;
+.key-disable-right {
+  background-color: #35ff69;
   color:#f7ebec;
-  /* border: none; */
+  border-color: #35ff69;
 }
+.key-disable-wrong {
+  background-color: #c33149;
+  color:#f7ebec;
+  border-color: #c33149;
+
+}
+
 
 .key:nth-child(23) {
   grid-row: 3;

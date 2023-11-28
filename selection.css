@@ -59,9 +59,10 @@ label {
 }
 
 .level-btn > button:hover {
-	color: #622EAA;
-    background: #fff;
+	color: #F7EBEC;
+    background: #35ff69;
     transition: 0.1s;
+	border-color:#35ff69 ;
 }
 
 .show {

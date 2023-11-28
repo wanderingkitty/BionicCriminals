@@ -12,7 +12,7 @@ for (let i = 65; i <= 90; i++) {
   keybordDiv.appendChild(button);
   button.classList.add("key");
   button.addEventListener("click", (e) => {
-    button.classList.add("key-disable");
+    // button.classList.add("key-disable");
     button.disabled = true;
     initGame(e.target, String.fromCharCode(i));
     FinnsInGame(e.target, String.fromCharCode(i));
@@ -26,7 +26,7 @@ for (let charCode of [197, 196, 214]) {
   keybordDiv.appendChild(button);
   button.classList.add("key");
   button.addEventListener("click", (e) => {
-    button.classList.add("key-disable");
+    // button.classList.add("key-disable");
     button.disabled = true;
     initGame(e.target, String.fromCharCode(charCode));
     FinnsInGame(e.target, String.fromCharCode(charCode));
@@ -166,7 +166,7 @@ document.addEventListener("keydown", (event) => {
       const button = keyButtons.find((item) => item.char === pressedChar);
       if (button && !button.button.disabled) {
         button.button.disabled = true;
-        button.button.classList.add("key-disable");
+        // button.button.classList.add("key-disable");
         initGame(button.button, pressedChar);
         FinnsInGame(button.button, pressedChar);
       }
@@ -200,6 +200,8 @@ const FinnsInGame = (button, clickedLetter) => {
       let letterSpan = paragraph.children[index];
       if (letterSpan) {
         letterSpan.classList.add("show-word");
+        button.classList.add("key-disable-right")
+        button.button.classList.add("key-disable-right")
       }
       
       foundInWord = true;
@@ -213,6 +215,8 @@ const FinnsInGame = (button, clickedLetter) => {
     count++;
     countDisplay.textContent = count;
     hangbotImg.src = `img/the-hangbot-${count}.png`;
+    button.classList.add("key-disable-wrong")
+    button.button.classList.add("key-disable-wrong")
   }
   if (count == 6) {
     console.log("game over");
