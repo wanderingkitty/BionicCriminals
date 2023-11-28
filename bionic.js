@@ -6,21 +6,10 @@ const initGame = (button, keyButtons) => {
   //   console.log(clickedLetter);
 };
 
-for (let i = 65; i <= 90; i++) {
-  const button = document.createElement("button");
-  button.innerText = String.fromCharCode(i);
-  keybordDiv.appendChild(button);
-  button.classList.add("key");
-  button.addEventListener("click", (e) => {
-    // button.classList.add("key-disable");
-    button.disabled = true;
-    initGame(e.target, String.fromCharCode(i));
-    FinnsInGame(e.target, String.fromCharCode(i));
-  });
-  keyButtons.push({ button, char: String.fromCharCode(i) });
-}
-
-for (let charCode of [197, 196, 214]) {
+for (let charCode of [
+  65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+  84, 85, 86, 87, 88, 89, 197, 196, 214,
+]) {
   const button = document.createElement("button");
   button.innerText = String.fromCharCode(charCode);
   keybordDiv.appendChild(button);
@@ -53,10 +42,11 @@ let paragraph;
 
 hardBtn.addEventListener("click", () => {
   //   console.log(slumpatOrd);
-  
+
   slumpatOrd = slumpaHardOrd();
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
+  playerScore.innerText = hardScore;
   for (var i = 0; i < slumpatOrd.length; i++) {
     paragraph = document.createElement("p");
     paragraph.textContent = slumpatOrd[i];
@@ -69,9 +59,11 @@ hardBtn.addEventListener("click", () => {
 
 easyBtn.addEventListener("click", () => {
   slumpatOrd = slumpmassigtOrd();
-  
+
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
+  playerScore.innerText = lattScore;
+
   for (var i = 0; i < slumpatOrd.length; i++) {
     paragraph = document.createElement("p");
     paragraph.textContent = slumpatOrd[i];
@@ -102,20 +94,20 @@ easyBtn.addEventListener("click", () => {
   };
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
-  
+
   localStorage.setItem(inputName, json);
 });
 
-hardBtn.addEventListener('click', () =>{
+hardBtn.addEventListener("click", () => {
   let user = userName.value;
   let data = {
     user: user,
   };
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
-  
+
   localStorage.setItem(inputName, json);
-})
+});
 
 import { words } from "./svenska-ord.js";
 
@@ -159,9 +151,9 @@ var container = document.querySelector("#the-word");
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
     const pressedChar = event.key.toUpperCase();
-    
+
     const isLetter = pressedChar >= "A" && pressedChar <= "Ö";
-    
+
     if (isLetter) {
       const button = keyButtons.find((item) => item.char === pressedChar);
       if (button && !button.button.disabled) {
@@ -181,33 +173,33 @@ const playerScore = document.querySelector("#user-points");
 const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
 
-let lattScore = 600
-let hardScore = 800
-playerScore.innerText = lattScore;
-playerScore.innerText = hardScore;
+let lattScore = 600;
+let hardScore = 800;
+// playerScore.innerText = lattScore;
+// playerScore.innerText = hardScore;
 
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
-  
+
   let paragraph = document.querySelector("#the-word");
-  
+
   let wordArray = Array.from(slumpatOrd.toUpperCase());
   let newLattScore;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
       console.log(clickedLetter);
-      
+
       let letterSpan = paragraph.children[index];
       if (letterSpan) {
         letterSpan.classList.add("show-word");
-        button.classList.add("key-disable-right")
-        button.button.classList.add("key-disable-right")
+        button.classList.add("key-disable-right");
+        button.button.classList.add("key-disable-right");
       }
-      
+
       foundInWord = true;
     }
   });
-  
+
   if (!foundInWord) {
     newLattScore = lattScore -= 100;
     playerScore.innerText = newLattScore;
@@ -215,8 +207,8 @@ const FinnsInGame = (button, clickedLetter) => {
     count++;
     countDisplay.textContent = count;
     hangbotImg.src = `img/the-hangbot-${count}.png`;
-    button.classList.add("key-disable-wrong")
-    button.button.classList.add("key-disable-wrong")
+    button.classList.add("key-disable-wrong");
+    button.button.classList.add("key-disable-wrong");
   }
   if (count == 6) {
     console.log("game over");
