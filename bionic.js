@@ -158,7 +158,7 @@ document.addEventListener("keydown", (event) => {
       const button = keyButtons.find((item) => item.char === pressedChar);
       if (button && !button.button.disabled) {
         button.button.disabled = true;
-        // button.button.classList.add("key-disable");
+        button.button.classList.add("key-disable");
         initGame(button.button, pressedChar);
         FinnsInGame(button.button, pressedChar);
       }
@@ -193,7 +193,6 @@ const FinnsInGame = (button, clickedLetter) => {
       if (letterSpan) {
         letterSpan.classList.add("show-word");
         button.classList.add("key-disable-right");
-        button.button.classList.add("key-disable-right");
       }
 
       foundInWord = true;
@@ -208,7 +207,6 @@ const FinnsInGame = (button, clickedLetter) => {
     countDisplay.textContent = count;
     hangbotImg.src = `img/the-hangbot-${count}.png`;
     button.classList.add("key-disable-wrong");
-    button.button.classList.add("key-disable-wrong");
   }
   if (count == 6) {
     console.log("game over");
