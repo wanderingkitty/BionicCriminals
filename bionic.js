@@ -53,6 +53,7 @@ let paragraph;
 
 hardBtn.addEventListener("click", () => {
   //   console.log(slumpatOrd);
+  
   slumpatOrd = slumpaHardOrd();
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
@@ -68,7 +69,7 @@ hardBtn.addEventListener("click", () => {
 
 easyBtn.addEventListener("click", () => {
   slumpatOrd = slumpmassigtOrd();
-
+  
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
   for (var i = 0; i < slumpatOrd.length; i++) {
@@ -101,9 +102,20 @@ easyBtn.addEventListener("click", () => {
   };
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
-
+  
   localStorage.setItem(inputName, json);
 });
+
+hardBtn.addEventListener('click', () =>{
+  let user = userName.value;
+  let data = {
+    user: user,
+  };
+  playerName.innerText = userName.value;
+  let json = JSON.stringify(data);
+  
+  localStorage.setItem(inputName, json);
+})
 
 import { words } from "./svenska-ord.js";
 
@@ -147,9 +159,9 @@ var container = document.querySelector("#the-word");
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
     const pressedChar = event.key.toUpperCase();
-
+    
     const isLetter = pressedChar >= "A" && pressedChar <= "Ö";
-
+    
     if (isLetter) {
       const button = keyButtons.find((item) => item.char === pressedChar);
       if (button && !button.button.disabled) {
@@ -169,28 +181,31 @@ const playerScore = document.querySelector("#user-points");
 const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
 
-let lattScore = 600;
+let lattScore = 600
+let hardScore = 800
 playerScore.innerText = lattScore;
+playerScore.innerText = hardScore;
+
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
-
+  
   let paragraph = document.querySelector("#the-word");
-
+  
   let wordArray = Array.from(slumpatOrd.toUpperCase());
   let newLattScore;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
       console.log(clickedLetter);
-
+      
       let letterSpan = paragraph.children[index];
       if (letterSpan) {
         letterSpan.classList.add("show-word");
       }
-
+      
       foundInWord = true;
     }
   });
-
+  
   if (!foundInWord) {
     newLattScore = lattScore -= 100;
     playerScore.innerText = newLattScore;
