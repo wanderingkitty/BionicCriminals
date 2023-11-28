@@ -8,7 +8,7 @@ const initGame = (button, keyButtons) => {
 
 for (let charCode of [
   65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
-  84, 85, 86, 87, 88, 89, 197, 196, 214,
+  84, 85, 86, 87, 88, 89, 90, 197, 196, 214,
 ]) {
   const button = document.createElement("button");
   button.innerText = String.fromCharCode(charCode);
@@ -167,12 +167,14 @@ const countDisplay = document.querySelector(".count");
 const playerScore = document.querySelector("#user-points");
 const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
+const winnerScreen = document.querySelector(".winner-screen");
+const winnerWord = document.querySelector("#winner-word");
 
 let lattScore = 600;
 let hardScore = 800;
 // playerScore.innerText = lattScore;
 // playerScore.innerText = hardScore;
-
+let correctGuesses = 0;
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
 
@@ -180,6 +182,7 @@ const FinnsInGame = (button, clickedLetter) => {
 
   let wordArray = Array.from(slumpatOrd.toUpperCase());
   let newLattScore;
+  //   let correctGuesses = 0;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
       console.log(clickedLetter);
@@ -188,8 +191,8 @@ const FinnsInGame = (button, clickedLetter) => {
       if (letterSpan) {
         letterSpan.classList.add("show-word");
         button.classList.add("key-disable-right");
+        correctGuesses++;
       }
-
       foundInWord = true;
     }
   });
@@ -208,6 +211,11 @@ const FinnsInGame = (button, clickedLetter) => {
     gameScreen.classList.remove("show-game");
     gameOverScreen.style.display = "block";
     gameOverWord.innerText = slumpatOrd;
+  }
+  if (correctGuesses === wordArray.length) {
+    winnerScreen.style.display = "block";
+    gameScreen.classList.remove("show-game");
+    winnerWord.innerText = slumpatOrd;
   }
 };
 
