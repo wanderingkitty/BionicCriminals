@@ -45,28 +45,29 @@ playBtn.addEventListener("click", () => {
   selectScreen.classList.add("show");
 });
 // Selection page
-const menuFooter = document.querySelector(".menu")
+let slumpatOrd;
+const menuFooter = document.querySelector(".menu");
 const easyBtn = document.querySelector("#try-btn");
 const hardBtn = document.querySelector("#hard-btn");
 let paragraph;
 
 hardBtn.addEventListener("click", () => {
-  console.log(slumpaHard);
-
+  //   console.log(slumpatOrd);
+  slumpatOrd = slumpaHardOrd();
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
-  for (var i = 0; i < slumpaHard.length; i++) {
+  for (var i = 0; i < slumpatOrd.length; i++) {
     paragraph = document.createElement("p");
-    paragraph.textContent = slumpaHard[i];
+    paragraph.textContent = slumpatOrd[i];
     container.appendChild(paragraph);
     paragraph.classList.add("hide-word");
-    menuFooter.style.display = "flex"
-
+    menuFooter.style.display = "flex";
   }
+  console.log(slumpatOrd);
 });
 
 easyBtn.addEventListener("click", () => {
-  console.log(slumpatOrd);
+  slumpatOrd = slumpmassigtOrd();
 
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
@@ -75,9 +76,9 @@ easyBtn.addEventListener("click", () => {
     paragraph.textContent = slumpatOrd[i];
     container.appendChild(paragraph);
     paragraph.classList.add("hide-word");
-    menuFooter.style.display = "flex"
-
+    menuFooter.style.display = "flex";
   }
+  console.log(slumpatOrd);
 });
 
 const userName = document.querySelector("#user-input");
@@ -126,9 +127,9 @@ function slumpaHardOrd() {
   return svåraOrd[mix].toUpperCase();
 }
 
-const slumpaHard = slumpaHardOrd();
+// const slumpaHard = slumpaHardOrd();
 
-const slumpatOrd = slumpmassigtOrd();
+// const slumpatOrd = slumpmassigtOrd();
 
 // Get the container element where you want to display the letters
 var container = document.querySelector("#the-word");
@@ -165,8 +166,8 @@ var count = 0;
 const hangbotImg = document.querySelector(".hangman");
 const countDisplay = document.querySelector(".count");
 const playerScore = document.querySelector("#user-points");
-const gameOverScreen = document.querySelector(".game-over-screen")
-const gameOverWord = document.querySelector("#game-over-word")
+const gameOverScreen = document.querySelector(".game-over-screen");
+const gameOverWord = document.querySelector("#game-over-word");
 
 let lattScore = 600;
 playerScore.innerText = lattScore;
@@ -176,7 +177,7 @@ const FinnsInGame = (button, clickedLetter) => {
   let paragraph = document.querySelector("#the-word");
 
   let wordArray = Array.from(slumpatOrd.toUpperCase());
-  let newLattScore
+  let newLattScore;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
       console.log(clickedLetter);
@@ -191,7 +192,7 @@ const FinnsInGame = (button, clickedLetter) => {
   });
 
   if (!foundInWord) {
-    newLattScore = (lattScore -= 100);
+    newLattScore = lattScore -= 100;
     playerScore.innerText = newLattScore;
     console.log("finns inte");
     count++;
@@ -199,10 +200,10 @@ const FinnsInGame = (button, clickedLetter) => {
     hangbotImg.src = `img/the-hangbot-${count}.png`;
   }
   if (count == 6) {
-    console.log('game over');
-    gameScreen.classList.remove('show-game')
-    gameOverScreen.style.display = 'block';
-    gameOverWord.innerText = slumpatOrd
+    console.log("game over");
+    gameScreen.classList.remove("show-game");
+    gameOverScreen.style.display = "block";
+    gameOverWord.innerText = slumpatOrd;
   }
 };
 
