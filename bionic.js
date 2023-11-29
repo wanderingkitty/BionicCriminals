@@ -21,7 +21,7 @@ for (let i = 65; i <= 90; i++) {
   keyButtons.push({ button, char: String.fromCharCode(i) });
 }
 
-for (let charCode of [65, 66, 67, 197, 196, 214]) {
+for (let charCode of [197, 196, 214]) {
   const button = document.createElement("button");
   button.innerText = String.fromCharCode(charCode);
   keybordDiv.appendChild(button);
