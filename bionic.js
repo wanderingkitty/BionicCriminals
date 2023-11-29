@@ -173,7 +173,6 @@ const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
 const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
-
 let lattScore = 600;
 let hardScore = 800;
 // playerScore.innerText = lattScore;
