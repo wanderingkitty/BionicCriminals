@@ -209,6 +209,7 @@ const FinnsInGame = (button, clickedLetter) => {
     count++;
     countDisplay.textContent = count;
     hangbotImg.src = `img/the-hangbot-${count}.png`;
+    button.classList.add("key-disable-wrong");
   }
   if (count == 6) {
     console.log("game over");
