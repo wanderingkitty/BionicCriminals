@@ -10,7 +10,7 @@ import { gameScreen } from "./bionic.js";
 import { gameOverScreen } from './bionic.js';
 import { winnerScreen } from "./bionic.js";
 const topListScreen = document.querySelector('.top-list-container');
-const topButton = document.querySelector('.menu-item-high');
+const topButton = document.querySelector('#menu-item-high');
 const topImage = document.querySelector('.top-hangman');
 const orderedListTop = document.querySelector('.ordered-top-list');
 

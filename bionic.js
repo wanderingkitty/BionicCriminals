@@ -246,3 +246,9 @@ const FinnsInGame = (button, clickedLetter) => {
 //   let data = {
 //     name: user,
 //   };}
+
+// Button 
+const restartGame = document.querySelector("#menu-item-restart")
+const quitGame = document.querySelector("#menu-item-quit")
+const rulesGame = document.querySelector("#menu-item-rules")
+
