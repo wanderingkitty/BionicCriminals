@@ -185,3 +185,10 @@
   flex-grow: 1;
 }
 
+.user-information {
+  display: flex;
+}
+
+.user-information > span:first-child {
+  flex-grow: 1;
+}

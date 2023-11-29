@@ -3,6 +3,8 @@ let userScoreTop = {
 	points: 0
 }
 
+console.log(userScoreTop);
+
 export { userScoreTop }
 
 //Toplist page
@@ -45,5 +47,5 @@ function createNewHighScore(list) {
 	})
 }
 
-
+// let 
 

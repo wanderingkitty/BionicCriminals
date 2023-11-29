@@ -221,6 +221,7 @@ const FinnsInGame = (button, clickedLetter) => {
     winnerScreen.style.display = "block";
     gameScreen.classList.remove("show-game");
     winnerWord.innerText = slumpatOrd;
+
   }
 };
 
@@ -234,3 +235,9 @@ const FinnsInGame = (button, clickedLetter) => {
 // catch (error) {
 //   console.log("Error parsing JSON:", error)
 // }
+
+// function addUserToList () {
+//   let user = userName.value;
+//   let data = {
+//     name: user,
+//   };}
