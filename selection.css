@@ -76,3 +76,11 @@ label {
 	color:#F7EBEC;
 	cursor: pointer;
 }
+
+.menu-item-style {
+	background-color:transparent;
+	border:none;
+	padding: 0;
+	color:#F7EBEC;
+	cursor: pointer;
+}

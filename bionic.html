@@ -74,8 +74,9 @@
             </div>
         </section>
             <section class="top-list-container">
-                <h1>Toplista</h1>
+                <h1>Topplista</h1>
                 <div class="high-score">
+                    <p class="user-information"><span>Namn</span><span>Poäng</span></p>
                     <ol class="ordered-top-list"></ol>
                     <div class="top-hangman">
                         <!-- <img src="/img/Group 1 (1).png" alt=""> -->
@@ -85,9 +86,8 @@
 
 		<section>
 			<section class="winner-screen winner-screen-show">
-				<div class="img-section">
+				<div class="winner-img-section">
 				  <img
-					class="hangman-gif"
 					src="img/the-hangbot-winning-page.png"
 					alt="hangman getting hanged" />
 				</div>
@@ -101,22 +101,22 @@
     </main>
         <footer>
             <div class="menu">
-                <a class="menu-item">
+                <button id="menu-item-restart" class="menu-item-style">
                     <img src="img/symbol-restart.png" alt="" />
                     <p>Starta om</p>
-                </a>
-                <a class="menu-item">
+                </button>
+                <button id="menu-item-rules" class="menu-item-style">
                     <img src="img/symbol-about-game.png" alt="" />
                     <p>Regler</p>
-                </a>
-                <button class="menu-item-high">
+                </button>
+                <button id="menu-item-high" class="menu-item-style">
                     <img src="img/symbol-high-score.png" alt="" />
                     <p>Topplista</p>
                 </button>
-                <a class="menu-item">
+                <button id="menu-item-quit" class="menu-item-style">
                     <img src="img/symbol-quit.png" alt="" />
                     <p>Avsluta</p>
-                </a>
+                </button>
             </div>
         </footer>
     </body>

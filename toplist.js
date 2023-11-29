@@ -5,11 +5,12 @@ let userScoreTop = {
 
 export { userScoreTop };
 
-//Toplist page
+// Toplist page
 import { gameScreen } from "./bionic.js";
 import { gameOverScreen } from "./bionic.js";
+import { winnerScreen } from "./bionic.js";
 const topListScreen = document.querySelector(".top-list-container");
-const topButton = document.querySelector(".menu-item-high");
+const topButton = document.querySelector("#menu-item-high");
 const topImage = document.querySelector(".top-hangman");
 const orderedListTop = document.querySelector(".ordered-top-list");
 
@@ -18,27 +19,34 @@ topButton.addEventListener("click", () => {
   gameOverScreen.style.display = "none";
   topListScreen.style.display = "block";
   console.log("Button works");
-  createNewHighScore(highScoreList);
+  createNewHighScore();
+  winnerScreen.style.display = "none";
 });
 
-let highScoreList = [
-  { name: "Anton", points: 0 },
-  { name: "Linda", points: 100 },
-  { name: "Alina", points: 200 },
-];
+function createNewHighScore() {
+  const username = userScoreTop.username;
+  const newHighScore = { name: username, points: userScoreTop.points };
 
-function createNewHighScore(list) {
+  let existingHighScoreList =
+    JSON.parse(localStorage.getItem("highScoreList")) || [];
+  existingHighScoreList.push(newHighScore);
+  existingHighScoreList.sort((a, b) => b.points - a.points);
+
+  // Update local storage with the modified list
+  localStorage.setItem("highScoreList", JSON.stringify(existingHighScoreList));
+
   orderedListTop.innerText = "";
-  const topScoreList = list.map((highScoreList) => {
+  const topScoreList = existingHighScoreList.map((highScore) => {
     const li = document.createElement("li");
     const nameUser = document.createElement("span");
     const pointsUser = document.createElement("span");
-    nameUser.innerText = highScoreList.name;
-    pointsUser.innerText = highScoreList.points;
+    nameUser.innerText = highScore.name;
+    pointsUser.innerText = highScore.points;
     li.append(nameUser);
     li.append(pointsUser);
     return li;
   });
+
   topScoreList.forEach((top) => {
     orderedListTop.append(top);
   });

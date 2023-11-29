@@ -1,4 +1,5 @@
 import { userScoreTop } from "./toplist.js";
+export {winnerScreen}
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
@@ -186,6 +187,7 @@ const FinnsInGame = (button, clickedLetter) => {
 
   let wordArray = Array.from(slumpatOrd.toUpperCase());
   let newLattScore;
+  
   //   let correctGuesses = 0;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
@@ -199,6 +201,7 @@ const FinnsInGame = (button, clickedLetter) => {
       }
       foundInWord = true;
     }
+  
   });
 
   if (!foundInWord) {
@@ -218,6 +221,9 @@ const FinnsInGame = (button, clickedLetter) => {
     gameOverWord.innerText = slumpatOrd;
   }
   if (correctGuesses === wordArray.length) {
+    newLattScore = lattScore;
+    playerScore.innerText = newLattScore;
+    userScoreTop.points = newLattScore;
     winnerScreen.style.display = "block";
     gameScreen.classList.remove("show-game");
     winnerWord.innerText = slumpatOrd;
@@ -234,3 +240,15 @@ const FinnsInGame = (button, clickedLetter) => {
 // catch (error) {
 //   console.log("Error parsing JSON:", error)
 // }
+
+// function addUserToList () {
+//   let user = userName.value;
+//   let data = {
+//     name: user,
+//   };}
+
+// Button 
+const restartGame = document.querySelector("#menu-item-restart")
+const quitGame = document.querySelector("#menu-item-quit")
+const rulesGame = document.querySelector("#menu-item-rules")
+
