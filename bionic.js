@@ -186,6 +186,7 @@ const FinnsInGame = (button, clickedLetter) => {
 
   let wordArray = Array.from(slumpatOrd.toUpperCase());
   let newLattScore;
+  
   //   let correctGuesses = 0;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
@@ -199,6 +200,7 @@ const FinnsInGame = (button, clickedLetter) => {
       }
       foundInWord = true;
     }
+  
   });
 
   if (!foundInWord) {
