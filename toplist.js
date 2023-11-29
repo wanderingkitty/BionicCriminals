@@ -9,7 +9,6 @@ export { userScoreTop }
 import { gameScreen } from "./bionic.js"
 import { gameOverScreen } from './bionic.js'
 const topListScreen = document.querySelector('.top-list-container')
-const cheerHigh = document.querySelector('#cheer-word')
 const topButton = document.querySelector('.menu-item-high')
 const topImage = document.querySelector('.top-hangman')
 const orderedListTop = document.querySelector('.ordered-top-list')
@@ -30,6 +29,7 @@ let highScoreList = [
 ]
 
 function createNewHighScore(list) {
+	orderedListTop.innerText = ''
 	const topScoreList = list.map(highScoreList =>{
 		const li = document.createElement('li')
 		const nameUser = document.createElement('span')
