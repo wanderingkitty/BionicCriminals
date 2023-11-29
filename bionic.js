@@ -89,7 +89,7 @@ easyBtn.addEventListener("click", () => {
   let data = {
     user: user,
   };
-  userScoreTop.username = user;
+  userScoreTop.username = user
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
 
@@ -173,7 +173,7 @@ const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
 const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
-
+export {gameOverScreen}
 let lattScore = 600;
 let hardScore = 800;
 // playerScore.innerText = lattScore;
@@ -209,6 +209,7 @@ const FinnsInGame = (button, clickedLetter) => {
     count++;
     countDisplay.textContent = count;
     hangbotImg.src = `img/the-hangbot-${count}.png`;
+    button.classList.add("key-disable-wrong")
   }
   if (count == 6) {
     console.log("game over");
