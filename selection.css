@@ -68,3 +68,11 @@ label {
 .show {
 	display: flex;
 }
+
+.menu-item-high {
+	background-color:transparent;
+	border:none;
+	padding: 0;
+	color:#F7EBEC;
+	cursor: pointer;
+}
