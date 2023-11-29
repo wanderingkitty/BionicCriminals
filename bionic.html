@@ -21,6 +21,7 @@
       rel="stylesheet" />
   </head>
   <body>
+    <main>
     <section class="start-screen" id="start-display">
       <div class="img-section">
         <img
@@ -71,11 +72,17 @@
                 <p>Bättre lycka nästa gång.</p>
                 <p>Ordet var: <span id="game-over-word"></span></p>
             </div>
-            <div class="top-list-container">
-                <h1>Toplista</h1>
-                <p>Wow! Impressive! <span id="cheer-word"></span> </p>
-            </div>
         </section>
+            <section class="top-list-container">
+                <h1>Toplista</h1>
+                <div class="high-score">
+                    <ol class="ordered-top-list"></ol>
+                    <div class="top-hangman">
+                        <!-- <img src="/img/Group 1 (1).png" alt=""> -->
+                    </div>
+                </div>
+            </section>
+
 		<section>
 			<section class="winner-screen winner-screen-show">
 				<div class="img-section">
@@ -91,6 +98,7 @@
 				<p>Ordet var: <span id="winner-word"></span></p>
 			  </div>
 		</section>
+    </main>
         <footer>
             <div class="menu">
                 <a class="menu-item">
