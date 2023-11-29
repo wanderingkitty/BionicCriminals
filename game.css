@@ -73,22 +73,20 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: #3D348B;
+  color: #3d348b;
   background-color: #f7ebec;
   padding: 0.4em 0;
 }
 .key-disable-right {
   background-color: #35ff69;
-  color:#f7ebec;
+  color: #f7ebec;
   border-color: #35ff69;
 }
 .key-disable-wrong {
   background-color: #c33149;
-  color:#f7ebec;
+  color: #f7ebec;
   border-color: #c33149;
-
 }
-
 
 .key:nth-child(23) {
   grid-row: 3;
@@ -142,20 +140,24 @@
 }
 
 /* Loosing page */
-.game-over-screen {
+.game-over-screen,
+.winner-screen {
   display: none;
 }
 
-.game-over-text-container {
+.game-over-text-container,
+.winner-text-container {
   text-align: center;
   margin-bottom: 4em;
 }
 
-.game-over-screen h1 {
+.game-over-screen h1,
+.winner-screen h1 {
   margin-bottom: 0.5em;
 }
 
-.game-over-screen p {
+.game-over-screen p,
+.winner-screen p {
   padding: 0.3em;
   font-size: 1.1em;
 }

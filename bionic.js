@@ -1,4 +1,4 @@
-import { userScoreTop } from "./toplist.js"
+import { userScoreTop } from "./toplist.js";
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
@@ -7,21 +7,10 @@ const initGame = (button, keyButtons) => {
   //   console.log(clickedLetter);
 };
 
-for (let i = 65; i <= 90; i++) {
-  const button = document.createElement("button");
-  button.innerText = String.fromCharCode(i);
-  keybordDiv.appendChild(button);
-  button.classList.add("key");
-  button.addEventListener("click", (e) => {
-    button.classList.add("key-disable");
-    button.disabled = true;
-    initGame(e.target, String.fromCharCode(i));
-    FinnsInGame(e.target, String.fromCharCode(i));
-  });
-  keyButtons.push({ button, char: String.fromCharCode(i) });
-}
-
-for (let charCode of [65, 66, 67, 197, 196, 214]) {
+for (let charCode of [
+  65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+  84, 85, 86, 87, 88, 89, 90, 197, 196, 214,
+]) {
   const button = document.createElement("button");
   button.innerText = String.fromCharCode(charCode);
   keybordDiv.appendChild(button);
@@ -41,7 +30,7 @@ const selectScreen = document.querySelector("#selection");
 const gameScreen = document.querySelector("#game-screen");
 const lattaOrd = [];
 const svåraOrd = [];
-export {gameScreen}
+export { gameScreen };
 playBtn.addEventListener("click", () => {
   startScreen.classList.add("hide");
   selectScreen.classList.add("show");
@@ -53,12 +42,7 @@ const easyBtn = document.querySelector("#try-btn");
 const hardBtn = document.querySelector("#hard-btn");
 let paragraph;
 
-hardBtn.addEventListener("click", () => {
-  //   console.log(slumpatOrd);
-  
-  slumpatOrd = slumpaHardOrd();
-  selectScreen.classList.remove("show");
-  gameScreen.classList.add("show-game");
+function RandomWord() {
   for (var i = 0; i < slumpatOrd.length; i++) {
     paragraph = document.createElement("p");
     paragraph.textContent = slumpatOrd[i];
@@ -66,21 +50,24 @@ hardBtn.addEventListener("click", () => {
     paragraph.classList.add("hide-word");
     menuFooter.style.display = "flex";
   }
+}
+hardBtn.addEventListener("click", () => {
+  //   console.log(slumpatOrd);
+
+  slumpatOrd = slumpaHardOrd();
+  selectScreen.classList.remove("show");
+  gameScreen.classList.add("show-game");
+  playerScore.innerText = hardScore;
+  RandomWord();
   console.log(slumpatOrd);
 });
 
 easyBtn.addEventListener("click", () => {
   slumpatOrd = slumpmassigtOrd();
-  
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
-  for (var i = 0; i < slumpatOrd.length; i++) {
-    paragraph = document.createElement("p");
-    paragraph.textContent = slumpatOrd[i];
-    container.appendChild(paragraph);
-    paragraph.classList.add("hide-word");
-    menuFooter.style.display = "flex";
-  }
+  playerScore.innerText = lattScore;
+  RandomWord();
   console.log(slumpatOrd);
 });
 
@@ -102,24 +89,24 @@ easyBtn.addEventListener("click", () => {
   let data = {
     user: user,
   };
-  userScoreTop.username = user
+  userScoreTop.username = user;
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
-  
+
   localStorage.setItem(inputName, json);
 });
 
-hardBtn.addEventListener('click', () =>{
+hardBtn.addEventListener("click", () => {
   let user = userName.value;
   let data = {
     user: user,
   };
-  userScoreTop.username = user
+  userScoreTop.username = user;
   playerName.innerText = userName.value;
   let json = JSON.stringify(data);
-  
+
   localStorage.setItem(inputName, json);
-})
+});
 
 import { words } from "./svenska-ord.js";
 
@@ -163,9 +150,9 @@ var container = document.querySelector("#the-word");
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
     const pressedChar = event.key.toUpperCase();
-    
+
     const isLetter = pressedChar >= "A" && pressedChar <= "Ö";
-    
+
     if (isLetter) {
       const button = keyButtons.find((item) => item.char === pressedChar);
       if (button && !button.button.disabled) {
@@ -184,37 +171,40 @@ const countDisplay = document.querySelector(".count");
 const playerScore = document.querySelector("#user-points");
 const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
+const winnerScreen = document.querySelector(".winner-screen");
+const winnerWord = document.querySelector("#winner-word");
 
-
-let lattScore = 600
-let hardScore = 800
-playerScore.innerText = lattScore;
-playerScore.innerText = hardScore;
-
+let lattScore = 600;
+let hardScore = 800;
+// playerScore.innerText = lattScore;
+// playerScore.innerText = hardScore;
+let correctGuesses = 0;
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
-  
+
   let paragraph = document.querySelector("#the-word");
-  
+
   let wordArray = Array.from(slumpatOrd.toUpperCase());
   let newLattScore;
+  //   let correctGuesses = 0;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
       console.log(clickedLetter);
-      
+
       let letterSpan = paragraph.children[index];
       if (letterSpan) {
         letterSpan.classList.add("show-word");
+        button.classList.add("key-disable-right");
+        correctGuesses++;
       }
-      
       foundInWord = true;
     }
   });
-  
+
   if (!foundInWord) {
     newLattScore = lattScore -= 100;
-    playerScore.innerText = newLattScore
-    userScoreTop.points = newLattScore
+    playerScore.innerText = newLattScore;
+    userScoreTop.points = newLattScore;
     console.log("finns inte");
     count++;
     countDisplay.textContent = count;
@@ -225,6 +215,11 @@ const FinnsInGame = (button, clickedLetter) => {
     gameScreen.classList.remove("show-game");
     gameOverScreen.style.display = "block";
     gameOverWord.innerText = slumpatOrd;
+  }
+  if (correctGuesses === wordArray.length) {
+    winnerScreen.style.display = "block";
+    gameScreen.classList.remove("show-game");
+    winnerWord.innerText = slumpatOrd;
   }
 };
 

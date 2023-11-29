@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hangman Game</title>
-        <script type="module" src="bionic.js"></script>
-        <script type="module" src="svenska-ord.js"></script>
-        <link rel="stylesheet" href="bionic.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="stylesheet" href="/selection.css" />
-        <link rel="stylesheet" href="/game.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <section class="start-screen" id="start-display">
-            <div class="img-section">
-                <img
-                    class="hangman-gif swing"
-                    src="img/hangbot-fp.png"
-                    alt="hangman getting hanged"
-                />
-            </div>
-            <h1>HANGBOT</h1>
-            <h2>the game</h2>
-            <button class="play-btn">START</button>
-        </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+    <script type="module" src="bionic.js"></script>
+    <script type="module" src="svenska-ord.js"></script>
+    <link rel="stylesheet" href="bionic.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/selection.css" />
+    <link rel="stylesheet" href="/game.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <section class="start-screen" id="start-display">
+      <div class="img-section">
+        <img
+          class="hangman-gif swing"
+          src="img/hangbot-fp.png"
+          alt="hangman getting hanged" />
+      </div>
+      <h1>HANGBOT</h1>
+      <h2>the game</h2>
+      <button class="play-btn">START</button>
+    </section>
 
-        <section class="selection-page" id="selection">
-            <label for="user-input"> ANVÄNDARNAMN </label>
-            <input id="user-input" type="text" />
-            <!-- <div class="save-btn">
+    <section class="selection-page" id="selection">
+      <label for="user-input"> ANVÄNDARNAMN </label>
+      <input id="user-input" type="text" />
+      <!-- <div class="save-btn">
         <button>SPARA</button>
       </div> -->
             <div class="level-btn">
@@ -78,21 +75,22 @@
                 <h1>Toplista</h1>
                 <p>Wow! Impressive! <span id="cheer-word"></span> </p>
             </div>
-            <!-- <div class="menu">
-                <a class="menu-item">
-                    <img src="img/symbol-restart.png" alt="" />
-                    <p>Starta om</p>
-                </a>
-                <a class="menu-item">
-                    <img src="img/symbol-high-score.png" alt="" />
-                    <p>Topplista</p>
-                </a>
-                <a class="menu-item">
-                    <img src="img/symbol-quit.png" alt="" />
-                    <p>Avsluta</p>
-                </a>
-            </div> -->
         </section>
+		<section>
+			<section class="winner-screen winner-screen-show">
+				<div class="img-section">
+				  <img
+					class="hangman-gif"
+					src="img/the-hangbot-winning-page.png"
+					alt="hangman getting hanged" />
+				</div>
+			<div class="winner-text-container">
+				<h1>Du vann!</h1>
+				<p>Grattis du klarade spelet.</p>
+				<p>På <span>0</span> antal gissningar. </p>
+				<p>Ordet var: <span id="winner-word"></span></p>
+			  </div>
+		</section>
         <footer>
             <div class="menu">
                 <a class="menu-item">
