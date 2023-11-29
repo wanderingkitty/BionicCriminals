@@ -29,6 +29,10 @@ let highScoreList = [
 ]
 
 function createNewHighScore(list) {
+	const username = userScoreTop.username;
+	const newHighScore = { name: username, points: userScoreTop.points };
+	list.sort((a, b) => b.points - a.points);
+	list.push(newHighScore);
 	orderedListTop.innerText = ''
 	const topScoreList = list.map(highScoreList =>{
 		const li = document.createElement('li')
