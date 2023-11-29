@@ -1,8 +1,3 @@
-let userScoreTop = {
-	username: '',
-	points: 0
-};
-
 export { userScoreTop };
 
 // Toplist page
@@ -14,6 +9,11 @@ const topButton = document.querySelector('#menu-item-high');
 const topImage = document.querySelector('.top-hangman');
 const orderedListTop = document.querySelector('.ordered-top-list');
 
+let userScoreTop = {
+	username: '',
+	points: 0
+};
+
 topButton.addEventListener('click', () => {
 	gameScreen.classList.remove('show-game');
 	gameOverScreen.style.display = 'none';
@@ -22,8 +22,6 @@ topButton.addEventListener('click', () => {
 	createNewHighScore();
     winnerScreen.style.display = "none";
 });
-
-
 
 function createNewHighScore() {
 	const username = userScoreTop.username;
