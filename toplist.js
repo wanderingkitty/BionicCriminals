@@ -8,6 +8,7 @@ export { userScoreTop };
 // Toplist page
 import { gameScreen } from "./bionic.js";
 import { gameOverScreen } from './bionic.js';
+import { winnerScreen } from "./bionic.js";
 const topListScreen = document.querySelector('.top-list-container');
 const topButton = document.querySelector('.menu-item-high');
 const topImage = document.querySelector('.top-hangman');
@@ -19,13 +20,10 @@ topButton.addEventListener('click', () => {
 	topListScreen.style.display = 'block';
 	console.log('Button works');
 	createNewHighScore();
+    winnerScreen.style.display = "none";
 });
 
-// let highScoreList = [
-// 	{ name: 'Anton', points: 0 },
-// 	{ name: 'Linda', points: 100 },
-// 	{ name: 'Alina', points: 200 }
-// ];
+
 
 function createNewHighScore() {
 	const username = userScoreTop.username;

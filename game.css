@@ -192,3 +192,15 @@
 .user-information > span:first-child {
   flex-grow: 1;
 }
+
+/* Winner section */
+.winner-img-section img {
+  height: 450px;
+  margin-bottom: 2em;
+  margin-top: 1em;
+}
+
+.winner-img-section {
+display: flex;
+justify-content: center;
+}

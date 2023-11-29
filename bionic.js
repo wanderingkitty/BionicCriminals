@@ -1,4 +1,5 @@
 import { userScoreTop } from "./toplist.js";
+export {winnerScreen}
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
@@ -220,10 +221,12 @@ const FinnsInGame = (button, clickedLetter) => {
     gameOverWord.innerText = slumpatOrd;
   }
   if (correctGuesses === wordArray.length) {
+    newLattScore = lattScore;
+    playerScore.innerText = newLattScore;
+    userScoreTop.points = newLattScore;
     winnerScreen.style.display = "block";
     gameScreen.classList.remove("show-game");
     winnerWord.innerText = slumpatOrd;
-
   }
 };
 
