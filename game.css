@@ -161,3 +161,27 @@
   padding: 0.3em;
   font-size: 1.1em;
 }
+
+.top-hangman img {
+  width: 60px;
+  height: 100px;
+}
+
+.top-list-container {
+  display: none;
+  margin: 2em;
+}
+
+.high-score {
+  padding-top: 2em;
+}
+
+.ordered-top-list > li {
+  display: flex;
+  flex-direction: row;
+}
+
+.ordered-top-list> li > span:first-child {
+  flex-grow: 1;
+}
+
