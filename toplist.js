@@ -3,13 +3,7 @@ let userScoreTop = {
 	points: 0
 };
 
-<<<<<<< HEAD
-console.log(userScoreTop);
-
-export { userScoreTop }
-=======
 export { userScoreTop };
->>>>>>> Alina
 
 // Toplist page
 import { gameScreen } from "./bionic.js";
