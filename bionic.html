@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman Game</title>
@@ -14,32 +14,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
-      rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+    rel="stylesheet" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
-      rel="stylesheet" />
-  </head>
-  <body>
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+</head>
+<body>
     <main>
-    <section class="start-screen" id="start-display">
-      <div class="img-section">
-        <img
-          class="hangman-gif swing"
-          src="img/hangbot-fp.png"
-          alt="hangman getting hanged" />
-      </div>
-      <h1>HANGBOT</h1>
-      <h2>the game</h2>
-      <button class="play-btn">START</button>
-    </section>
-
-    <section class="selection-page" id="selection">
-      <label for="user-input"> ANVÄNDARNAMN </label>
-      <input id="user-input" type="text" />
-      <!-- <div class="save-btn">
-        <button>SPARA</button>
-      </div> -->
+        <section class="start-screen" id="start-display">
+            <div class="img-section">
+                <img
+                class="hangman-gif swing"
+                src="img/hangbot-fp.png"
+                alt="hangman getting hanged" />
+            </div>
+            <h1>HANGBOT</h1>
+            <h2>the game</h2>
+            <button class="play-btn">START</button>
+        </section>
+        
+        <section class="selection-page" id="selection">
+            <label for="user-input"> ANVÄNDARNAMN </label>
+            <input id="user-input" type="text" />
+            <!-- <div class="save-btn">
+                <button>SPARA</button>
+            </div> -->
             <div class="level-btn">
                 <button id="try-btn">LÄTT</button>
                 <button id="hard-btn">SVÅRT</button>
@@ -48,21 +48,23 @@
         <section class="game-screen" id="game-screen">
             <div class="user-score">
                 <p id="user-name"></p>
-
-                    <p class="guesses">Fel: <span class="count">0</span>/6</p>
+                <p>Poäng: <span id="user-points"></span></p>
             </div>
             <div class="hangman-section">
                 <img class="hangman" src="img/the-hangbot-0.png" alt="" />
                 <div id="the-word"></div>
+                <div>
+                    <p class="guesses">Fel: <span class="count">0</span>/6</p>
+                </div>
             </div>
             <div id="keyboard"></div>
         </section>
         <section class="game-over-screen game-over-screen-show">
             <div class="img-section">
                 <img
-                    class="hangman-gif swing"
-                    src="img/the-hangbot-loosing-page.png"
-                    alt="hangman getting hanged"
+                class="hangman-gif swing"
+                src="img/the-hangbot-loosing-page.png"
+                alt="hangman getting hanged"
                 />
             </div>
             <div class="game-over-text-container">
@@ -71,32 +73,32 @@
                 <p>Ordet var: <span id="game-over-word"></span></p>
             </div>
         </section>
-            <section class="top-list-container">
-                <h1>Topplista</h1>
-                <div class="high-score">
-                    <p class="user-information"><span>Namn</span> <span class="width">Status</span><span class="width">Längd</span><span class="width">Fel</span>
-					<span class="width">Tid</span></p>
-                    <ol class="ordered-top-list"></ol>
-                    <div class="top-hangman">
-                        <!-- <img src="/img/Group 1 (1).png" alt=""> -->
-                    </div>
+        <section class="top-list-container">
+            <h1>Topplista</h1>
+            <div class="high-score">
+                <p class="user-information"><span>Namn</span><span>Poäng</span></p>
+                <ol class="ordered-top-list"></ol>
+                <div class="top-hangman">
+                    <!-- <img src="/img/Group 1 (1).png" alt=""> -->
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <section class="winner-screen winner-screen-show">
+                <div class="winner-img-section">
+                    <img
+                    src="img/the-hangbot-winning-page.png"
+                    alt="hangman getting hanged" />
+                </div>
+                <div class="winner-text-container">
+                    <h1>Du vann!</h1>
+                    <p>Grattis du klarade spelet.</p>
+                    <p>På <span>0</span> antal gissningar. </p>
+                    <p>Ordet var: <span id="winner-word"></span></p>
                 </div>
             </section>
-
-		<section>
-			<section class="winner-screen winner-screen-show">
-				<div class="winner-img-section">
-				  <img
-					src="img/the-hangbot-winning-page.png"
-					alt="hangman getting hanged" />
-				</div>
-			<div class="winner-text-container">
-				<h1>Du vann!</h1>
-				<p>Grattis du klarade spelet på <span id="user-points"></span> antal gissningar.</p>
-				<p>Ordet var: <span id="winner-word"></span></p>
-			  </div>
-		</section>
-    </main>
+        </main>
         <footer>
             <div class="menu">
                 <button id="menu-item-restart" class="menu-item-style">
@@ -118,4 +120,4 @@
             </div>
         </footer>
     </body>
-</html>
+    </html>
