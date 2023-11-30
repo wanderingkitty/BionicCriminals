@@ -48,14 +48,12 @@
         <section class="game-screen" id="game-screen">
             <div class="user-score">
                 <p id="user-name"></p>
-                <p>Poäng: <span id="user-points"></span></p>
+
+                    <p class="guesses">Fel: <span class="count">0</span>/6</p>
             </div>
             <div class="hangman-section">
                 <img class="hangman" src="img/the-hangbot-0.png" alt="" />
                 <div id="the-word"></div>
-                <div>
-                    <p class="guesses">Fel: <span class="count">0</span>/6</p>
-                </div>
             </div>
             <div id="keyboard"></div>
         </section>
@@ -76,7 +74,8 @@
             <section class="top-list-container">
                 <h1>Topplista</h1>
                 <div class="high-score">
-                    <p class="user-information"><span>Namn</span><span>Poäng</span></p>
+                    <p class="user-information"><span>Namn</span> <span class="width">Status</span><span class="width">Längd</span><span class="width">Fel</span>
+					<span class="width">Tid</span></p>
                     <ol class="ordered-top-list"></ol>
                     <div class="top-hangman">
                         <!-- <img src="/img/Group 1 (1).png" alt=""> -->
@@ -93,8 +92,7 @@
 				</div>
 			<div class="winner-text-container">
 				<h1>Du vann!</h1>
-				<p>Grattis du klarade spelet.</p>
-				<p>På <span>0</span> antal gissningar. </p>
+				<p>Grattis du klarade spelet på <span id="user-points"></span> antal gissningar.</p>
 				<p>Ordet var: <span id="winner-word"></span></p>
 			  </div>
 		</section>

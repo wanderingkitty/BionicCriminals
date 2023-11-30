@@ -26,11 +26,6 @@
   /* margin-bottom: 0; */
 }
 
-.guesses {
-  margin-top: 1em;
-  opacity: 0.6;
-}
-
 .user-score {
   display: flex;
   flex-direction: row;
@@ -181,8 +176,13 @@
   flex-direction: row;
 }
 
-.ordered-top-list> li > span:first-child {
+.ordered-top-list > li > span:first-child {
   flex-grow: 1;
+}
+.width {
+  width: 3em;
+  margin-left: 1em;
+  text-align: right;
 }
 
 .user-information {
@@ -202,6 +202,6 @@
 }
 
 .winner-img-section {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }

@@ -3,6 +3,8 @@ import { words } from "./svenska-ord.js";
 export { winnerScreen };
 export { gameOverScreen };
 export { gameScreen };
+export { FinnsInGame };
+export { gameStatus };
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
@@ -20,6 +22,7 @@ for (let charCode of [
   button.addEventListener("click", (e) => {
     button.classList.add("key-disable");
     button.disabled = true;
+    totalGuesses++;
     initGame(e.target, String.fromCharCode(charCode));
     FinnsInGame(e.target, String.fromCharCode(charCode));
   });
@@ -57,7 +60,7 @@ hardBtn.addEventListener("click", () => {
   slumpatOrd = slumpaHardOrd();
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
-  playerScore.innerText = hardScore;
+  playerScore.innerText = totalGuesses;
   RandomWord();
   console.log(slumpatOrd);
 });
@@ -66,7 +69,7 @@ easyBtn.addEventListener("click", () => {
   slumpatOrd = slumpmassigtOrd();
   selectScreen.classList.remove("show");
   gameScreen.classList.add("show-game");
-  playerScore.innerText = lattScore;
+  playerScore.innerText = totalGuesses;
   RandomWord();
   console.log(slumpatOrd);
 });
@@ -133,7 +136,7 @@ function slumpaHardOrd() {
 
 // Get the container element where you want to display the letters
 var container = document.querySelector("#the-word");
-
+let totalGuesses = 0;
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
     const pressedChar = event.key.toUpperCase();
@@ -143,6 +146,7 @@ document.addEventListener("keydown", (event) => {
     if (isLetter) {
       const button = keyButtons.find((item) => item.char === pressedChar);
       if (button && !button.button.disabled) {
+        totalGuesses++;
         button.button.disabled = true;
         button.button.classList.add("key-disable");
         initGame(button.button, pressedChar);
@@ -160,39 +164,35 @@ const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
 const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
-let lattScore = 600;
-let hardScore = 800;
 let correctGuesses = 0;
+let gameStatus = false;
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
 
   let paragraph = document.querySelector("#the-word");
 
   let wordArray = Array.from(slumpatOrd.toUpperCase());
-  let newLattScore;
-
-  //   let correctGuesses = 0;
   wordArray.forEach((letter, index) => {
     if (letter === clickedLetter) {
       console.log(clickedLetter);
+      console.log(totalGuesses);
 
       let letterSpan = paragraph.children[index];
       if (letterSpan) {
         letterSpan.classList.add("show-word");
         button.classList.add("key-disable-right");
+
         correctGuesses++;
       }
       foundInWord = true;
     }
   });
-
   if (!foundInWord) {
-    newLattScore = lattScore -= 100;
-    playerScore.innerText = newLattScore;
-    userScoreTop.points = newLattScore;
-    console.log("finns inte");
     count++;
     countDisplay.textContent = count;
+    userScoreTop.wrong = count;
+
+    console.log("finns inte", userScoreTop);
     hangbotImg.src = `img/the-hangbot-${count}.png`;
     button.classList.add("key-disable-wrong");
   }
@@ -201,16 +201,21 @@ const FinnsInGame = (button, clickedLetter) => {
     gameScreen.classList.remove("show-game");
     gameOverScreen.style.display = "block";
     gameOverWord.innerText = slumpatOrd;
+    playerScore.innerText = totalGuesses;
+    userScoreTop.length = wordArray.length;
+    userScoreTop.status = gameStatus = false;
   }
   if (correctGuesses === wordArray.length) {
-    newLattScore = lattScore;
-    playerScore.innerText = newLattScore;
-    userScoreTop.points = newLattScore;
+    playerScore.innerText = totalGuesses;
+    userScoreTop.wrong = count;
     winnerScreen.style.display = "block";
     gameScreen.classList.remove("show-game");
     winnerWord.innerText = slumpatOrd;
+    userScoreTop.length = wordArray.length;
+    userScoreTop.status = gameStatus = true;
   }
 };
+
 // Button
 const restartGame = document.querySelector("#menu-item-restart");
 const quitGame = document.querySelector("#menu-item-quit");
