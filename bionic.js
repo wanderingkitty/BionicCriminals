@@ -1,4 +1,4 @@
-import { userScoreTop } from "./toplist.js";
+import { topListScreen, userScoreTop } from "./toplist.js";
 import { words } from "./svenska-ord.js";
 import { createNewHighScore } from "./toplist.js";
 export { winnerScreen };
@@ -167,7 +167,7 @@ const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
 let correctGuesses = 0;
 let gameStatus = false;
-let scoreTime = (new Date)
+let scoreTime = new Date();
 let formattedTime = scoreTime.toLocaleString();
 
 const FinnsInGame = (button, clickedLetter) => {
@@ -208,10 +208,8 @@ const FinnsInGame = (button, clickedLetter) => {
     playerScore.innerText = totalGuesses;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
-    userScoreTop.date = formattedTime
+    userScoreTop.date = formattedTime;
     createNewHighScore();
-
-
   }
   if (correctGuesses === wordArray.length) {
     playerScore.innerText = totalGuesses;
@@ -221,13 +219,50 @@ const FinnsInGame = (button, clickedLetter) => {
     winnerWord.innerText = slumpatOrd;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
-    userScoreTop.date = formattedTime
+    userScoreTop.date = formattedTime;
     createNewHighScore();
-
   }
 };
 
 // Button
+// const restartGame = document.querySelector("#menu-item-restart");
 const restartGame = document.querySelector("#menu-item-restart");
-const quitGame = document.querySelector("#menu-item-quit");
 const rulesGame = document.querySelector("#menu-item-rules");
+const quitGame = document.querySelector("#menu-item-quit");
+
+restartGame.addEventListener("click", () => {
+  quitResetGame();
+  selectScreen.classList.add("show");
+});
+
+quitGame.addEventListener("click", () => {
+  quitResetGame();
+  startScreen.classList.remove("hide");
+});
+
+function quitResetGame() {
+  gameOverScreen.style.display = "none";
+  winnerScreen.style.display = "none";
+  count = 0;
+  totalGuesses = 0;
+  correctGuesses = 0;
+
+  // Reset hangbot image
+  hangbotImg.src = "img/the-hangbot-0.png";
+
+  // Enable all keyboard buttons and remove classes
+  keyButtons.forEach((item) => {
+    item.button.disabled = false;
+    item.button.classList.remove(
+      "key-disable",
+      "key-disable-right",
+      "key-disable-wrong"
+    );
+  });
+  container.innerHTML = "";
+  //   startScreen.classList.remove("hide");
+  selectScreen.classList.remove("show");
+  gameScreen.classList.remove("show-game");
+  menuFooter.style.display = "none";
+  topListScreen.style.display = "none";
+}
