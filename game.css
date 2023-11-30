@@ -178,11 +178,22 @@
 
 .ordered-top-list > li > span:first-child {
   flex-grow: 1;
+  text-align: left;
+  margin-left: 0;
 }
 .width {
   width: 3em;
-  margin-left: 1em;
+  margin-left: 1.5em;
   text-align: right;
+}
+
+.bold {
+  font-weight: 600;
+  /* font-size: 1.1em; */
+}
+
+.width img {
+  width: 1em;
 }
 
 .user-information {

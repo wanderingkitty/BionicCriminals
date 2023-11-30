@@ -15,7 +15,7 @@ let userScoreTop = {
   username: "",
   wrong: 0,
   length: 0,
-  status: "",
+  status: null,
   date: "",
 };
 
@@ -34,13 +34,13 @@ function createNewHighScore() {
     name: username,
     wrong: userScoreTop.wrong,
     length: userScoreTop.length,
-    staus: userScoreTop.status,
+    status: userScoreTop.status,
   };
 
   let existingHighScoreList =
     JSON.parse(localStorage.getItem("highScoreList")) || [];
   existingHighScoreList.push(newHighScore);
-  existingHighScoreList.sort((a, b) => b.wrong - a.wrong);
+  existingHighScoreList.sort((a, b) => a.wrong - b.wrong);
 
   // Update local storage with the modified list
   localStorage.setItem("highScoreList", JSON.stringify(existingHighScoreList));
@@ -55,19 +55,27 @@ function createNewHighScore() {
     nameUser.innerText = highScore.name;
     wrongUser.innerText = highScore.wrong;
     wordUser.innerText = highScore.length;
-    if (gameStatus) {
-      statusUser.style.backgroundColor = "#35ff69";
+    if (highScore.status) {
+		const img = document.createElement('img');
+		img.src = "img/yes.png";
+		img.alt = 'Vinst';
+		statusUser.innerHTML = ''; // Clear any existing content
+		statusUser.appendChild(img);
     } else {
-      statusUser.style.backgroundColor = "#c33149";
+		const img = document.createElement('img');
+		img.src = "img/delete.png";
+		img.alt = 'Förlust';
+		statusUser.innerHTML = ''; // Clear any existing content
+		statusUser.appendChild(img);
     }
     nameUser.classList.add("width");
     wordUser.classList.add("width");
     wrongUser.classList.add("width");
     statusUser.classList.add("width");
     li.append(nameUser);
+    li.append(statusUser);
     li.append(wordUser);
     li.append(wrongUser);
-    li.append(statusUser);
     return li;
   });
 
