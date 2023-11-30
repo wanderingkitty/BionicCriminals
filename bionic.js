@@ -1,11 +1,13 @@
 import { userScoreTop } from "./toplist.js";
+import { words } from "./svenska-ord.js";
 export {winnerScreen}
+export {gameOverScreen}
+export { gameScreen };
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
 const keyButtons = [];
 const initGame = (button, keyButtons) => {
-  //   console.log(clickedLetter);
 };
 
 for (let charCode of [
@@ -31,7 +33,7 @@ const selectScreen = document.querySelector("#selection");
 const gameScreen = document.querySelector("#game-screen");
 const lattaOrd = [];
 const svåraOrd = [];
-export { gameScreen };
+
 playBtn.addEventListener("click", () => {
   startScreen.classList.add("hide");
   selectScreen.classList.add("show");
@@ -53,7 +55,6 @@ function RandomWord() {
   }
 }
 hardBtn.addEventListener("click", () => {
-  //   console.log(slumpatOrd);
 
   slumpatOrd = slumpaHardOrd();
   selectScreen.classList.remove("show");
@@ -109,8 +110,6 @@ hardBtn.addEventListener("click", () => {
   localStorage.setItem(inputName, json);
 });
 
-import { words } from "./svenska-ord.js";
-
 for (let i = 0; i < words.length; i++) {
   const currentWord = words[i];
   if (currentWord.length >= 10 && currentWord.length <= 13) {
@@ -130,23 +129,12 @@ function slumpaHardOrd() {
   const mix = Math.floor(Math.random() * svåraOrd.length);
   return svåraOrd[mix].toUpperCase();
 }
-
 // const slumpaHard = slumpaHardOrd();
 
 // const slumpatOrd = slumpmassigtOrd();
 
 // Get the container element where you want to display the letters
 var container = document.querySelector("#the-word");
-
-// Loop through each letter in the word
-// for (var i = 0; i < slumpatOrd.length; i++) {
-// 	var paragraph = document.createElement("p");
-// 	paragraph.textContent = slumpatOrd[i];
-// 	container.appendChild(paragraph);
-// 	paragraph.classList.add("hide-word");
-// }
-
-// String.fromCharCode(charCode);
 
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
@@ -174,11 +162,9 @@ const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
 const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
-export {gameOverScreen}
+
 let lattScore = 600;
 let hardScore = 800;
-// playerScore.innerText = lattScore;
-// playerScore.innerText = hardScore;
 let correctGuesses = 0;
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
@@ -229,24 +215,6 @@ const FinnsInGame = (button, clickedLetter) => {
     winnerWord.innerText = slumpatOrd;
   }
 };
-
-// let userScore = localStorage.getItem('user-points')
-//   if (!foundInWord) {
-//   }
-// try {
-//   let object = JSON.parse()
-//   userScore = object.score
-// }
-// catch (error) {
-//   console.log("Error parsing JSON:", error)
-// }
-
-// function addUserToList () {
-//   let user = userName.value;
-//   let data = {
-//     name: user,
-//   };}
-
 // Button 
 const restartGame = document.querySelector("#menu-item-restart")
 const quitGame = document.querySelector("#menu-item-quit")
