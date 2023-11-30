@@ -1,5 +1,6 @@
 import { userScoreTop } from "./toplist.js";
 import { words } from "./svenska-ord.js";
+import { createNewHighScore } from "./toplist.js";
 export { winnerScreen };
 export { gameOverScreen };
 export { gameScreen };
@@ -166,6 +167,9 @@ const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
 let correctGuesses = 0;
 let gameStatus = false;
+let scoreTime = (new Date)
+let formattedTime = scoreTime.toLocaleString();
+
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
 
@@ -204,6 +208,10 @@ const FinnsInGame = (button, clickedLetter) => {
     playerScore.innerText = totalGuesses;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
+    userScoreTop.date = formattedTime
+    createNewHighScore();
+
+
   }
   if (correctGuesses === wordArray.length) {
     playerScore.innerText = totalGuesses;
@@ -213,6 +221,9 @@ const FinnsInGame = (button, clickedLetter) => {
     winnerWord.innerText = slumpatOrd;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
+    userScoreTop.date = formattedTime
+    createNewHighScore();
+
   }
 };
 

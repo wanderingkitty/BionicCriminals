@@ -181,10 +181,21 @@
   text-align: left;
   margin-left: 0;
 }
+
+.ordered-top-list > li span:last-child {
+  width: 5.5em;
+}
+
+.user-information span:last-child {
+  width: 5.5em;
+}
+
+
 .width {
-  width: 3em;
+  width: 2em;
   margin-left: 1.5em;
   text-align: right;
+  margin-bottom: 0.4em;
 }
 
 .bold {
