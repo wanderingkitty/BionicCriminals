@@ -6,17 +6,20 @@
   display: flex;
   flex-direction: column;
   /* background-color:rgba(255, 255, 255, 0.0); */
-  padding-top: 19em;
-  margin-left: 2em;
-  margin-right: 2em;
-  padding: 3em;
+  padding-left: 3em;
+  padding-right: 3em;
   /* padding-top: 5em; */
-  padding-bottom: 5em;
+  /* padding-bottom: 5em; */
   /* align-items:center; */
   border-radius: 6px;
   justify-content: center;
   text-align: center;
   display: none;
+  background-image: url(img/robo-about-page.png);
+   background-position-y: -200px;
+  background-position-x: -180px; 
+  background-size: 130%; 
+  background-repeat: no-repeat;
 }
 .selection-page h1 {
   padding-top: 20em;
@@ -24,19 +27,38 @@
 
 label {
   font-size: 1.6em;
+  padding-top: 14em;
+}
+
+.selection-page-text {
+	padding-top: 3em;
+	/* background-color: rgba(255, 255, 255, 0.1); */
+	border-radius: 6px;
+	color: 
+}
+.selection-page h2 {
+	padding-top: 1em;
+}
+
+.selection-page h2 {
+	margin-bottom: 0;
+	font-weight: 700;
 }
 
 .selection-page input {
   max-width: 35em;
-  margin-top: 1.5em;
+  margin-top: 1em;
   border-radius: 6px;
   border: 2px solid#F7EBEC;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #f7ebec;
   padding: 0.5em;
-  color: #f7ebec;
+  color:#3d348b ;
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-weight: 700;
+  font-size: 1.1em;
+  
 }
 
 .level-btn > button {
@@ -45,19 +67,24 @@ label {
   height: 1em;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 6px;
-  border: 2px solid #f7ebec;
+  border: 1px solid #f7ebec;
   cursor: pointer;
   color: #f7ebec;
   display: flex;
   text-align: center;
   align-items: center;
+  font-size: 1.1em;
 }
 
 .level-btn {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 1.5em;
+}
+
+.level-btn button {
+	margin: 0.2em;
 }
 
 .level-btn > button:hover {
