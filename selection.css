@@ -83,4 +83,10 @@ label {
 	padding: 0;
 	color:#F7EBEC;
 	cursor: pointer;
+	/* overflow: hidden; */
+    transition: transform 0.3s;
+}
+
+.menu-item-style:hover img {
+    transform: scale(1.4); /* Scales the image to 120% on hover */
 }
