@@ -168,7 +168,18 @@ const winnerWord = document.querySelector("#winner-word");
 let correctGuesses = 0;
 let gameStatus = false;
 let scoreTime = new Date();
-let formattedTime = scoreTime.toLocaleString();
+// let currentDate = new Date();
+
+// Get the individual components: day, month, and year
+let day = scoreTime.getDate();
+let month = scoreTime.getMonth() + 1; // Months are zero-based, so add 1
+let year = scoreTime.getFullYear();
+
+let formattedTime = scoreTime.toLocaleTimeString('sv-SE', { hour12: false });
+let [hours, minutes] = formattedTime.split(':');
+
+let formattedDate = `${day}/${month}/${year}`;
+let fullFormattedDateTime = `${formattedDate} ${hours}:${minutes}`;
 
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
@@ -208,7 +219,7 @@ const FinnsInGame = (button, clickedLetter) => {
     playerScore.innerText = totalGuesses;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
-    userScoreTop.date = formattedTime;
+    userScoreTop.date = fullFormattedDateTime;
     createNewHighScore();
   }
   if (correctGuesses === wordArray.length) {
@@ -219,7 +230,7 @@ const FinnsInGame = (button, clickedLetter) => {
     winnerWord.innerText = slumpatOrd;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
-    userScoreTop.date = formattedTime;
+    userScoreTop.date = fullFormattedDateTime;
     createNewHighScore();
   }
 };

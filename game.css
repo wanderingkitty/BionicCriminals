@@ -164,7 +164,7 @@
 
 .top-list-container {
   display: none;
-  padding: 2em;
+  padding: 2em 1em;
 }
 
 .high-score {
@@ -183,17 +183,17 @@
 }
 
 .ordered-top-list > li span:last-child {
-  width: 5.5em;
+  width: 7.5em;
 }
 
 .user-information span:last-child {
-  width: 5.5em;
+  width: 7.5em;
 }
 
 
 .width {
   width: 2em;
-  margin-left: 1.5em;
+  margin-left: 1em;
   text-align: right;
   margin-bottom: 0.4em;
 }
@@ -226,4 +226,43 @@
 .winner-img-section {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+}
+
+/* Media query for screens between 601 and 900 pixels */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+}
+
+/* Media query for screens larger than 901 pixels */
+@media only screen and (min-width: 901px) {
+  .game-screen {
+      max-width: 600px;
+      background-color: #3D348B;
+      margin: 0 auto;
+      border-radius: 6px;
+      padding-bottom: 1em;
+      margin-top: 1.5em;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  }
+  body {
+      background-color: #F7EBEC;
+  }
+  .selection-page-text {
+    padding-top: 0.8em;
+  }
+  .hangman {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .hangman-section {
+    margin-top: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 3em 2em 0em 2em;
+    
+  }
+  
 }
