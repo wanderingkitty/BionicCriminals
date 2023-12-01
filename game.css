@@ -1,5 +1,8 @@
 .game-screen {
   display: none;
+  max-width: 350px;
+  margin: 0 auto;
+
 }
 
 .show-game {
@@ -8,7 +11,7 @@
 
 .hangman {
   /* filter: invert(1); */
-  width: 100%;
+  width: 90%;
 }
 .hangman-section {
   display: flex;
@@ -17,7 +20,7 @@
   margin-top: 2em;
   margin-left: 2em;
   margin-right: 2em;
-  padding: 3em 2em 0em 2em;
+  padding: 3em 0em 0em 0em;
   /* padding-top: 3em; */
   /* padding-bottom: 3em; */
   /* align-items:center; */
@@ -119,6 +122,9 @@
   justify-content: space-around;
   /* margin-top: 3em; */
   margin-bottom: 1em;
+  max-width: 300px;
+  margin: 0 auto;
+
 }
 
 .menu img {
@@ -138,6 +144,8 @@
 .game-over-screen,
 .winner-screen {
   display: none;
+  flex-direction: column;
+
 }
 
 .game-over-text-container,
@@ -165,6 +173,10 @@
 .top-list-container {
   display: none;
   padding: 2em 1em;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 700px;
+
 }
 
 .high-score {
@@ -226,43 +238,4 @@
 .winner-img-section {
   display: flex;
   justify-content: center;
-}
-
-@media only screen and (max-width: 600px) {
-}
-
-/* Media query for screens between 601 and 900 pixels */
-@media only screen and (min-width: 601px) and (max-width: 900px) {
-}
-
-/* Media query for screens larger than 901 pixels */
-@media only screen and (min-width: 901px) {
-  .game-screen {
-      max-width: 600px;
-      background-color: #3D348B;
-      margin: 0 auto;
-      border-radius: 6px;
-      padding-bottom: 1em;
-      margin-top: 1.5em;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-  }
-  body {
-      background-color: #F7EBEC;
-  }
-  .selection-page-text {
-    padding-top: 0.8em;
-  }
-  .hangman {
-    width: 50%;
-    margin: 0 auto;
-  }
-  .hangman-section {
-    margin-top: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
-    padding: 3em 2em 0em 2em;
-    
-  }
-  
 }

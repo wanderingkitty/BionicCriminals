@@ -214,7 +214,7 @@ const FinnsInGame = (button, clickedLetter) => {
   if (count == 6) {
     console.log("game over");
     gameScreen.classList.remove("show-game");
-    gameOverScreen.style.display = "block";
+    gameOverScreen.style.display = "flex";
     gameOverWord.innerText = slumpatOrd;
     playerScore.innerText = totalGuesses;
     userScoreTop.length = wordArray.length;
@@ -225,7 +225,7 @@ const FinnsInGame = (button, clickedLetter) => {
   if (correctGuesses === wordArray.length) {
     playerScore.innerText = totalGuesses;
     userScoreTop.wrong = count;
-    winnerScreen.style.display = "block";
+    winnerScreen.style.display = "flex";
     gameScreen.classList.remove("show-game");
     winnerWord.innerText = slumpatOrd;
     userScoreTop.length = wordArray.length;
@@ -277,3 +277,21 @@ function quitResetGame() {
   menuFooter.style.display = "none";
   topListScreen.style.display = "none";
 }
+
+// Denna kod gör så att footer hoppar in i main när den är större än 900px
+const footer = document.querySelector('footer');
+const main = document.querySelector('main');
+
+function adjustFooterPlacement() {
+  if (window.innerWidth > 900) {
+    // Move footer inside main for larger screens
+    main.appendChild(footer);
+  } else {
+    // Move footer outside main for smaller screens
+    document.body.appendChild(footer);
+  }
+}
+
+// Call the function initially and on window resize
+adjustFooterPlacement();
+window.addEventListener('resize', adjustFooterPlacement);

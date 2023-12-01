@@ -20,6 +20,7 @@
   background-position-x: -180px; 
   background-size: 130%; 
   background-repeat: no-repeat;
+  /* height: 100vh; */
 }
 .selection-page h1 {
   padding-top: 20em;
@@ -117,37 +118,4 @@ label {
 
 .menu-item-style:hover img {
   transform: scale(1.4); /* Scales the image to 120% on hover */
-}
-
-
-@media only screen and (max-width: 600px) {
-}
-
-/* Media query for screens between 601 and 900 pixels */
-@media only screen and (min-width: 601px) and (max-width: 900px) {
-}
-
-/* Media query for screens larger than 901 pixels */
-@media only screen and (min-width: 901px) {
-  .selection-page {
-      max-width: 600px;
-      background-color: #3D348B;
-      margin: 0 auto;
-      border-radius: 6px;
-      padding-bottom: 1em;
-      margin-top: 1.5em;
-      background-image: url(img/robo-about-page.png);
-      background-position-y: -250px;
-      background-position-x: -120px; 
-      background-size: 100%; 
-      background-repeat: no-repeat;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-  }
-  body {
-      background-color: #F7EBEC;
-  }
-  .selection-page-text {
-    padding-top: 0.8em;
-  }
 }
