@@ -1,11 +1,11 @@
-import { topListScreen, userScoreTop } from "./toplist.js";
+import { topListScreen, userScoreTop, highScoreListan } from "./toplist.js";
 import { words } from "./svenska-ord.js";
-import { createNewHighScore } from "./toplist.js";
 export { winnerScreen };
 export { gameOverScreen };
 export { gameScreen };
 export { FinnsInGame };
 export { gameStatus };
+
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
@@ -175,8 +175,8 @@ let day = scoreTime.getDate();
 let month = scoreTime.getMonth() + 1; // Months are zero-based, so add 1
 let year = scoreTime.getFullYear();
 
-let formattedTime = scoreTime.toLocaleTimeString('sv-SE', { hour12: false });
-let [hours, minutes] = formattedTime.split(':');
+let formattedTime = scoreTime.toLocaleTimeString("sv-SE", { hour12: false });
+let [hours, minutes] = formattedTime.split(":");
 
 let formattedDate = `${day}/${month}/${year}`;
 let fullFormattedDateTime = `${formattedDate} ${hours}:${minutes}`;
@@ -220,7 +220,8 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
     userScoreTop.date = fullFormattedDateTime;
-    createNewHighScore();
+    // userScoreTop.date = formattedTime;
+    highScoreListan();
   }
   if (correctGuesses === wordArray.length) {
     playerScore.innerText = totalGuesses;
@@ -231,7 +232,8 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
     userScoreTop.date = fullFormattedDateTime;
-    createNewHighScore();
+    // userScoreTop.date = formattedTime;
+    highScoreListan();
   }
 };
 
@@ -257,7 +259,7 @@ function quitResetGame() {
   count = 0;
   totalGuesses = 0;
   correctGuesses = 0;
-
+  countDisplay.textContent = count;
   // Reset hangbot image
   hangbotImg.src = "img/the-hangbot-0.png";
 
@@ -279,8 +281,8 @@ function quitResetGame() {
 }
 
 // Denna kod gör så att footer hoppar in i main när den är större än 900px
-const footer = document.querySelector('footer');
-const main = document.querySelector('main');
+const footer = document.querySelector("footer");
+const main = document.querySelector("main");
 
 function adjustFooterPlacement() {
   if (window.innerWidth > 900) {
@@ -294,4 +296,4 @@ function adjustFooterPlacement() {
 
 // Call the function initially and on window resize
 adjustFooterPlacement();
-window.addEventListener('resize', adjustFooterPlacement);
+window.addEventListener("resize", adjustFooterPlacement);

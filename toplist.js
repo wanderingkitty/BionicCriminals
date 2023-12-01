@@ -1,13 +1,10 @@
 export { userScoreTop };
 
 // Toplist page
-import { gameScreen } from "./bionic.js";
-import { gameOverScreen } from "./bionic.js";
-import { winnerScreen } from "./bionic.js";
-import { FinnsInGame } from "./bionic.js";
-import { gameStatus } from "./bionic.js";
+import { gameScreen, gameOverScreen, winnerScreen } from "./bionic.js";
 export { createNewHighScore };
 export { topListScreen };
+export { highScoreListan };
 const topListScreen = document.querySelector(".top-list-container");
 const topButton = document.querySelector("#menu-item-high");
 const topImage = document.querySelector(".top-hangman");
@@ -20,6 +17,8 @@ let userScoreTop = {
   status: null,
   date: "",
 };
+let existingHighScoreList =
+  JSON.parse(localStorage.getItem("highScoreList")) || [];
 
 topButton.addEventListener("click", () => {
   gameScreen.classList.remove("show-game");
@@ -27,9 +26,9 @@ topButton.addEventListener("click", () => {
   topListScreen.style.display = "block";
   console.log("Button works");
   winnerScreen.style.display = "none";
+  createNewHighScore();
 });
-
-function createNewHighScore() {
+function highScoreListan() {
   const username = userScoreTop.username;
   const newHighScore = {
     name: username,
@@ -38,15 +37,14 @@ function createNewHighScore() {
     status: userScoreTop.status,
     date: userScoreTop.date,
   };
-
-  let existingHighScoreList =
-    JSON.parse(localStorage.getItem("highScoreList")) || [];
   existingHighScoreList.push(newHighScore);
   existingHighScoreList.sort((a, b) => a.wrong - b.wrong);
 
   // Update local storage with the modified list
   localStorage.setItem("highScoreList", JSON.stringify(existingHighScoreList));
+}
 
+function createNewHighScore() {
   orderedListTop.innerText = "";
   const topScoreList = existingHighScoreList.map((highScore) => {
     const li = document.createElement("li");
