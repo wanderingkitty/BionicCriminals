@@ -1,0 +1,93 @@
+@media only screen and (max-width: 600px) {
+
+   
+}
+
+
+
+/* Media query for screens larger than 901 pixels */
+@media only screen and (min-width: 601px) {
+    /* FP / Body / Resets / Fonts etc */
+    body {
+        background-color: #d9d9d9;
+        background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+    }
+        main {
+        max-width: 600px;
+        background-color: #3D348B;
+        margin: 0 auto;
+        border-radius: 6px;
+        margin-top: 1em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        height: 95vh;
+      }
+    
+    /* Selection screen */
+    .selection-page {
+        background-image: url(img/robo-about-page.png);
+        background-position-y: -230px;
+        background-position-x: -130px; 
+        background-size: 95%; 
+        background-repeat: no-repeat;
+  
+    }
+   
+
+    /* GAME SCREEN/ WINNING/ LOOSING/ TOPLIST PAGE */
+  #keyboard {
+    margin: 2em 2em 1em 2em;
+  }
+
+  
+  .selection-page-text {
+    padding-top: 0.8em;
+  }
+  .hangman {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .hangman-section {
+    padding: 3em 2em 0em 2em;
+    
+  }
+  .menu {
+    padding: 0 2em;
+    margin: 0 auto;
+  }
+  .menu img {
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .game-screen {
+    max-width: none;
+  
+  }
+
+  .game-over-screen,
+    .winner-screen {
+  display: none;
+  flex-direction: column;
+}
+
+.winner-img-section img {
+    margin-bottom:  0;
+}
+
+.game-over-text-container,
+.winner-text-container {
+  margin-bottom: 1em;
+}
+.hangman-gif {
+  margin-bottom: 1em;;
+}
+
+.winner-img-section img {
+  padding-top: 1em;
+}
+
+.top-list-container {
+    height: 650px;
+}
+
+}

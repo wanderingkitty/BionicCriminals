@@ -1,10 +1,11 @@
-import { userScoreTop } from "./toplist.js";
+import { topListScreen, userScoreTop, highScoreListan } from "./toplist.js";
 import { words } from "./svenska-ord.js";
 export { winnerScreen };
 export { gameOverScreen };
 export { gameScreen };
 export { FinnsInGame };
 export { gameStatus };
+
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
@@ -166,6 +167,20 @@ const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
 let correctGuesses = 0;
 let gameStatus = false;
+let scoreTime = new Date();
+// let currentDate = new Date();
+
+// Get the individual components: day, month, and year
+let day = scoreTime.getDate();
+let month = scoreTime.getMonth() + 1; // Months are zero-based, so add 1
+let year = scoreTime.getFullYear();
+
+let formattedTime = scoreTime.toLocaleTimeString("sv-SE", { hour12: false });
+let [hours, minutes] = formattedTime.split(":");
+
+let formattedDate = `${day}/${month}/${year}`;
+let fullFormattedDateTime = `${formattedDate} ${hours}:${minutes}`;
+
 const FinnsInGame = (button, clickedLetter) => {
   let foundInWord = false;
 
@@ -199,24 +214,86 @@ const FinnsInGame = (button, clickedLetter) => {
   if (count == 6) {
     console.log("game over");
     gameScreen.classList.remove("show-game");
-    gameOverScreen.style.display = "block";
+    gameOverScreen.style.display = "flex";
     gameOverWord.innerText = slumpatOrd;
     playerScore.innerText = totalGuesses;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
+    userScoreTop.date = fullFormattedDateTime;
+    // userScoreTop.date = formattedTime;
+    highScoreListan();
   }
   if (correctGuesses === wordArray.length) {
     playerScore.innerText = totalGuesses;
     userScoreTop.wrong = count;
-    winnerScreen.style.display = "block";
+    winnerScreen.style.display = "flex";
     gameScreen.classList.remove("show-game");
     winnerWord.innerText = slumpatOrd;
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
+    userScoreTop.date = fullFormattedDateTime;
+    // userScoreTop.date = formattedTime;
+    highScoreListan();
   }
 };
 
 // Button
+// const restartGame = document.querySelector("#menu-item-restart");
 const restartGame = document.querySelector("#menu-item-restart");
-const quitGame = document.querySelector("#menu-item-quit");
 const rulesGame = document.querySelector("#menu-item-rules");
+const quitGame = document.querySelector("#menu-item-quit");
+
+restartGame.addEventListener("click", () => {
+  quitResetGame();
+  selectScreen.classList.add("show");
+});
+
+quitGame.addEventListener("click", () => {
+  quitResetGame();
+  startScreen.classList.remove("hide");
+});
+
+function quitResetGame() {
+  gameOverScreen.style.display = "none";
+  winnerScreen.style.display = "none";
+  count = 0;
+  totalGuesses = 0;
+  correctGuesses = 0;
+  countDisplay.textContent = count;
+  // Reset hangbot image
+  hangbotImg.src = "img/the-hangbot-0.png";
+
+  // Enable all keyboard buttons and remove classes
+  keyButtons.forEach((item) => {
+    item.button.disabled = false;
+    item.button.classList.remove(
+      "key-disable",
+      "key-disable-right",
+      "key-disable-wrong"
+    );
+  });
+  container.innerHTML = "";
+  //   startScreen.classList.remove("hide");
+  selectScreen.classList.remove("show");
+  gameScreen.classList.remove("show-game");
+  menuFooter.style.display = "none";
+  topListScreen.style.display = "none";
+}
+
+// Denna kod gör så att footer hoppar in i main när den är större än 900px
+const footer = document.querySelector("footer");
+const main = document.querySelector("main");
+
+function adjustFooterPlacement() {
+  if (window.innerWidth > 900) {
+    // Move footer inside main for larger screens
+    main.appendChild(footer);
+  } else {
+    // Move footer outside main for smaller screens
+    document.body.appendChild(footer);
+  }
+}
+
+// Call the function initially and on window resize
+adjustFooterPlacement();
+window.addEventListener("resize", adjustFooterPlacement);
