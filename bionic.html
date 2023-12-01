@@ -48,14 +48,12 @@
         <section class="game-screen" id="game-screen">
             <div class="user-score">
                 <p id="user-name"></p>
-                <p>Poäng: <span id="user-points"></span></p>
+                
+                <p class="guesses">Fel: <span class="count">0</span>/6</p>
             </div>
             <div class="hangman-section">
                 <img class="hangman" src="img/the-hangbot-0.png" alt="" />
                 <div id="the-word"></div>
-                <div>
-                    <p class="guesses">Fel: <span class="count">0</span>/6</p>
-                </div>
             </div>
             <div id="keyboard"></div>
         </section>
@@ -76,48 +74,48 @@
         <section class="top-list-container">
             <h1>Topplista</h1>
             <div class="high-score">
-                <p class="user-information"><span>Namn</span><span>Poäng</span></p>
-                <ol class="ordered-top-list"></ol>
-                <div class="top-hangman">
-                    <!-- <img src="/img/Group 1 (1).png" alt=""> -->
-                </div>
-            </div>
-        </section>
-        
-        <section>
-            <section class="winner-screen winner-screen-show">
-                <div class="winner-img-section">
-                    <img
-                    src="img/the-hangbot-winning-page.png"
-                    alt="hangman getting hanged" />
-                </div>
-                <div class="winner-text-container">
-                    <h1>Du vann!</h1>
-                    <p>Grattis du klarade spelet.</p>
-                    <p>På <span>0</span> antal gissningar. </p>
-                    <p>Ordet var: <span id="winner-word"></span></p>
+                <p class="user-information"><span>Namn</span> <span class="width">Status</span><span class="width">Längd</span><span class="width">Fel</span>
+                    <span class="width">Tid</span></p>
+                    <ol class="ordered-top-list"></ol>
+                    <div class="top-hangman">
+                        <!-- <img src="/img/Group 1 (1).png" alt=""> -->
+                    </div>
                 </div>
             </section>
-        </main>
-        <footer>
-            <div class="menu">
-                <button id="menu-item-restart" class="menu-item-style">
-                    <img src="img/symbol-restart.png" alt="" />
-                    <p>Starta om</p>
-                </button>
-                <button id="menu-item-rules" class="menu-item-style">
-                    <img src="img/symbol-about-game.png" alt="" />
-                    <p>Regler</p>
-                </button>
-                <button id="menu-item-high" class="menu-item-style">
-                    <img src="img/symbol-high-score.png" alt="" />
-                    <p>Topplista</p>
-                </button>
-                <button id="menu-item-quit" class="menu-item-style">
-                    <img src="img/symbol-quit.png" alt="" />
-                    <p>Avsluta</p>
-                </button>
-            </div>
-        </footer>
-    </body>
-    </html>
+            
+            <section>
+                <section class="winner-screen winner-screen-show">
+                    <div class="winner-img-section">
+                        <img
+                        src="img/the-hangbot-winning-page.png"
+                        alt="hangman getting hanged" />
+                    </div>
+                    <div class="winner-text-container">
+                        <h1>Du vann!</h1>
+                        <p>Grattis du klarade spelet på <span id="user-points"></span> antal gissningar.</p>
+                        <p>Ordet var: <span id="winner-word"></span></p>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <div class="menu">
+                    <button id="menu-item-restart" class="menu-item-style">
+                        <img src="img/symbol-restart.png" alt="" />
+                        <p>Starta om</p>
+                    </button>
+                    <button id="menu-item-rules" class="menu-item-style">
+                        <img src="img/symbol-about-game.png" alt="" />
+                        <p>Regler</p>
+                    </button>
+                    <button id="menu-item-high" class="menu-item-style">
+                        <img src="img/symbol-high-score.png" alt="" />
+                        <p>Topplista</p>
+                    </button>
+                    <button id="menu-item-quit" class="menu-item-style">
+                        <img src="img/symbol-quit.png" alt="" />
+                        <p>Avsluta</p>
+                    </button>
+                </div>
+            </footer>
+        </body>
+        </html>
