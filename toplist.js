@@ -5,19 +5,19 @@ import { gameScreen, gameOverScreen, winnerScreen } from "./bionic.js";
 import { correctGuesses, count, FinnsInGame } from "./bionic.js";
 export { createNewHighScore };
 export { topListScreen };
-export { highScoreListan }
-export { goBack }
+export { highScoreListan };
+export { goBack };
 const topListScreen = document.querySelector(".top-list-container");
 const topButton = document.querySelector("#menu-item-high");
 const topImage = document.querySelector(".top-hangman");
 const orderedListTop = document.querySelector(".ordered-top-list");
-const goBack = document.querySelector('#tillbaka-btn')
+const goBack = document.querySelector("#tillbaka-btn");
+// const sortByDate = document.querySelector(".date-sort");
 
-goBack.addEventListener('click', () =>  {
-  gameScreen.classList.add('show-game')
-  topListScreen.style.display = 'none'
-})
-
+goBack.addEventListener("click", () => {
+  gameScreen.classList.add("show-game");
+  topListScreen.style.display = "none";
+});
 
 let userScoreTop = {
   username: "",
@@ -38,7 +38,7 @@ topButton.addEventListener("click", () => {
   winnerScreen.style.display = "none";
   createNewHighScore();
 });
-function highScoreListan() {
+function highScoreListan(list) {
   const username = userScoreTop.username;
   const newHighScore = {
     name: username,
@@ -74,7 +74,7 @@ function createNewHighScore() {
       statusUser.appendChild(img);
     } else {
       const img = document.createElement("img");
-      img.src = 'img/symbol-loose_1.png'
+      img.src = "img/symbol-loose_1.png";
       img.alt = "Förlust";
       statusUser.innerHTML = ""; // Clear any existing content
       statusUser.appendChild(img);
@@ -97,5 +97,23 @@ function createNewHighScore() {
     orderedListTop.append(top);
   });
 }
+const sortByDate = document.querySelectorAll(".date-sort");
+function compareByDate(a, b) {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
 
-
+  if (dateA < dateB) {
+    return -1;
+  } else if (dateA > dateB) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+sortByDate.forEach((button) => {
+  button.addEventListener("click", () => {
+    console.log("click");
+    existingHighScoreList.sort(compareByDate);
+    createNewHighScore();
+  });
+});
