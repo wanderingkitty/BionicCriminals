@@ -90,31 +90,6 @@ try {
 } catch {
   console.log("Nåt gick fel. Försök spara igen.");
 }
-
-easyBtn.addEventListener("click", () => {
-  let user = userName.value;
-  let data = {
-    user: user,
-  };
-  userScoreTop.username = user;
-  playerName.innerText = userName.value;
-  let json = JSON.stringify(data);
-
-  localStorage.setItem(inputName, json);
-});
-
-hardBtn.addEventListener("click", () => {
-  let user = userName.value;
-  let data = {
-    user: user,
-  };
-  userScoreTop.username = user;
-  playerName.innerText = userName.value;
-  let json = JSON.stringify(data);
-
-  localStorage.setItem(inputName, json);
-});
-
 for (let i = 0; i < words.length; i++) {
   const currentWord = words[i];
   if (currentWord.length >= 10 && currentWord.length <= 13) {
@@ -123,7 +98,6 @@ for (let i = 0; i < words.length; i++) {
     svåraOrd.push(currentWord);
   }
 }
-// console.log(lattaOrd);
 
 function slumpmassigtOrd() {
   const index = Math.floor(Math.random() * lattaOrd.length);
