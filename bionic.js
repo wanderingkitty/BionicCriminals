@@ -1,11 +1,11 @@
-import { topListScreen, userScoreTop } from "./toplist.js";
+import { topListScreen, userScoreTop, highScoreListan } from "./toplist.js";
 import { words } from "./svenska-ord.js";
-import { createNewHighScore } from "./toplist.js";
 export { winnerScreen };
 export { gameOverScreen };
 export { gameScreen };
 export { FinnsInGame };
 export { gameStatus };
+
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
 keyboard;
@@ -209,7 +209,7 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
     userScoreTop.date = formattedTime;
-    createNewHighScore();
+    highScoreListan();
   }
   if (correctGuesses === wordArray.length) {
     playerScore.innerText = totalGuesses;
@@ -220,7 +220,7 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
     userScoreTop.date = formattedTime;
-    createNewHighScore();
+    highScoreListan();
   }
 };
 
@@ -246,7 +246,7 @@ function quitResetGame() {
   count = 0;
   totalGuesses = 0;
   correctGuesses = 0;
-
+  countDisplay.textContent = count;
   // Reset hangbot image
   hangbotImg.src = "img/the-hangbot-0.png";
 
