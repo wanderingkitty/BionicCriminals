@@ -19,33 +19,6 @@
     <link
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
     rel="stylesheet" />
-<<<<<<< HEAD
-</head>
-<body>
-    <main>
-        <section class="start-screen" id="start-display">
-            <div class="img-section">
-                <img
-                class="hangman-gif swing"
-                src="img/hangbot-fp.png"
-                alt="hangman getting hanged" />
-            </div>
-            <h1>HANGBOT</h1>
-            <h2>the game</h2>
-            <button class="play-btn">START</button>
-        </section>
-        
-        <section class="selection-page" id="selection">
-            <label for="user-input"> ANVÄNDARNAMN </label>
-            <input id="user-input" type="text" />
-            <!-- <div class="save-btn">
-                <button>SPARA</button>
-            </div> -->
-            <div class="level-btn">
-                <button id="try-btn">LÄTT</button>
-                <button id="hard-btn">SVÅRT</button>
-            </div>
-=======
     <link rel="stylesheet" href="media-queries.css">
   </head>
   <body>
@@ -64,7 +37,7 @@
 
     <section class="selection-page" id="selection">
         <label for="user-input"> Användarnamn </label>
-        <input id="user-input" maxlength="8"type="text" />
+        <input id="user-input" maxlength="8"type="text" required/>
         <!-- <div class="save-btn">
             <button>SPARA</button>
         </div> -->
@@ -81,7 +54,6 @@
         <!-- <h2>Topplistan</h2>
         <p> Utmana dina vänner och försök att klara spelet med så få fel gissningar som möjligt. Lycka till!</p> -->
     </div>
->>>>>>> test
         </section>
         <section class="game-screen" id="game-screen">
             <div class="user-score">
@@ -109,64 +81,23 @@
                 <p>Ordet var: <span id="game-over-word"></span></p>
             </div>
         </section>
-<<<<<<< HEAD
-        <section class="top-list-container">
-            <h1>Topplista</h1>
-            <div class="high-score">
-                <p class="user-information"><span>Namn</span> <span class="width">Status</span><span class="width">Längd</span><span class="width">Fel</span>
-                    <span class="width">Tid</span></p>
-=======
             <section class="top-list-container">
+                <div class="back-top-container">
+                <button id="tillbaka-btn">
+                    <img src="./img/turn-back.png" alt="">Tillbaka
+                </button>
+              </div>
                 <h1>Topplista</h1>
+              
                 <div class="high-score">
                     <p class="user-information bold"><span>Namn</span> <span class="width bold">Vinst</span><span class="width bold">Längd</span><span class="width bold">Fel</span>
 					<span class="width">Tid</span></p>
->>>>>>> test
                     <ol class="ordered-top-list"></ol>
                     <div class="top-hangman">
                         <!-- <img src="/img/Group 1 (1).png" alt=""> -->
                     </div>
                 </div>
             </section>
-<<<<<<< HEAD
-            
-            <section>
-                <section class="winner-screen winner-screen-show">
-                    <div class="winner-img-section">
-                        <img
-                        src="img/the-hangbot-winning-page.png"
-                        alt="hangman getting hanged" />
-                    </div>
-                    <div class="winner-text-container">
-                        <h1>Du vann!</h1>
-                        <p>Grattis du klarade spelet på <span id="user-points"></span> antal gissningar.</p>
-                        <p>Ordet var: <span id="winner-word"></span></p>
-                    </div>
-                </section>
-            </main>
-            <footer>
-                <div class="menu">
-                    <button id="menu-item-restart" class="menu-item-style">
-                        <img src="img/symbol-restart.png" alt="" />
-                        <p>Starta om</p>
-                    </button>
-                    <button id="menu-item-rules" class="menu-item-style">
-                        <img src="img/symbol-about-game.png" alt="" />
-                        <p>Regler</p>
-                    </button>
-                    <button id="menu-item-high" class="menu-item-style">
-                        <img src="img/symbol-high-score.png" alt="" />
-                        <p>Topplista</p>
-                    </button>
-                    <button id="menu-item-quit" class="menu-item-style">
-                        <img src="img/symbol-quit.png" alt="" />
-                        <p>Avsluta</p>
-                    </button>
-                </div>
-            </footer>
-        </body>
-        </html>
-=======
 
 		<section>
 			<section class="winner-screen winner-screen-show">
@@ -201,4 +132,3 @@
         </footer>
     </body>
 </html>
->>>>>>> test

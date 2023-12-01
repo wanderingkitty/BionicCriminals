@@ -1,10 +1,13 @@
 import { topListScreen, userScoreTop, highScoreListan } from "./toplist.js";
 import { words } from "./svenska-ord.js";
+import { goBack } from "./toplist.js";
 export { winnerScreen };
 export { gameOverScreen };
 export { gameScreen };
 export { FinnsInGame };
 export { gameStatus };
+export { correctGuesses }
+export { count }
 
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
@@ -140,7 +143,7 @@ var container = document.querySelector("#the-word");
 let totalGuesses = 0;
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
-    const pressedChar = event.key.toUpperCase();
+    const pressedChar = event.key.toUpperCase(); 
 
     const isLetter = pressedChar >= "A" && pressedChar <= "Ö";
 
@@ -157,7 +160,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-var count = 0;
+let count = 0;
 const hangbotImg = document.querySelector(".hangman");
 const countDisplay = document.querySelector(".count");
 const playerScore = document.querySelector("#user-points");
@@ -220,6 +223,7 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
     userScoreTop.date = fullFormattedDateTime;
+    goBack.style.visibility = 'hidden'
     // userScoreTop.date = formattedTime;
     highScoreListan();
   }
@@ -232,6 +236,8 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
     userScoreTop.date = fullFormattedDateTime;
+    goBack.style.visibility = 'hidden'
+
     // userScoreTop.date = formattedTime;
     highScoreListan();
   }
@@ -259,6 +265,7 @@ function quitResetGame() {
   count = 0;
   totalGuesses = 0;
   correctGuesses = 0;
+  goBack.style.visibility = 'visible'
   countDisplay.textContent = count;
   // Reset hangbot image
   hangbotImg.src = "img/the-hangbot-0.png";
@@ -297,3 +304,4 @@ function adjustFooterPlacement() {
 // Call the function initially and on window resize
 adjustFooterPlacement();
 window.addEventListener("resize", adjustFooterPlacement);
+

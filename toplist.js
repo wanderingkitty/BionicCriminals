@@ -2,13 +2,22 @@ export { userScoreTop };
 
 // Toplist page
 import { gameScreen, gameOverScreen, winnerScreen } from "./bionic.js";
+import { correctGuesses, count, FinnsInGame } from "./bionic.js";
 export { createNewHighScore };
 export { topListScreen };
-export { highScoreListan };
+export { highScoreListan }
+export { goBack }
 const topListScreen = document.querySelector(".top-list-container");
 const topButton = document.querySelector("#menu-item-high");
 const topImage = document.querySelector(".top-hangman");
 const orderedListTop = document.querySelector(".ordered-top-list");
+const goBack = document.querySelector('#tillbaka-btn')
+
+goBack.addEventListener('click', () =>  {
+  gameScreen.classList.add('show-game')
+  topListScreen.style.display = 'none'
+})
+
 
 let userScoreTop = {
   username: "",
@@ -17,6 +26,7 @@ let userScoreTop = {
   status: null,
   date: "",
 };
+
 let existingHighScoreList =
   JSON.parse(localStorage.getItem("highScoreList")) || [];
 
@@ -58,13 +68,13 @@ function createNewHighScore() {
     wordUser.innerText = highScore.length;
     if (highScore.status) {
       const img = document.createElement("img");
-      img.src = "img/yes.png";
+      img.src = "img/symbol-win_1.png";
       img.alt = "Vinst";
       statusUser.innerHTML = ""; // Clear any existing content
       statusUser.appendChild(img);
     } else {
       const img = document.createElement("img");
-      img.src = "img/delete.png";
+      img.src = 'img/symbol-loose_1.png'
       img.alt = "Förlust";
       statusUser.innerHTML = ""; // Clear any existing content
       statusUser.appendChild(img);
@@ -87,3 +97,5 @@ function createNewHighScore() {
     orderedListTop.append(top);
   });
 }
+
+

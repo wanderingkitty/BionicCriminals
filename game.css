@@ -176,7 +176,7 @@
   max-width: 500px;
   margin: 0 auto;
   height: 700px;
-
+  padding-top: 0;
 }
 
 .high-score {
@@ -238,4 +238,35 @@
 .winner-img-section {
   display: flex;
   justify-content: center;
+
 }
+
+#tillbaka-btn {
+  background-color:transparent;
+  border:none;
+  color:#f7ebec;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+}
+
+#tillbaka-btn img {
+  filter: invert(100%);
+  width: 30px;
+
+}
+
+.back-top-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0;
+}
+
+.back-top-container > img {
+justify-content: flex-end;
+}
+
+.back-top-container h1 {
+  text-align: center;
+}
+
