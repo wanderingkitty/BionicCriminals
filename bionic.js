@@ -6,8 +6,8 @@ export { gameOverScreen };
 export { gameScreen };
 export { FinnsInGame };
 export { gameStatus };
-export { correctGuesses }
-export { count }
+export { correctGuesses };
+export { count };
 
 // keybord
 const keybordDiv = document.querySelector("#keyboard");
@@ -60,24 +60,6 @@ function RandomWord() {
     menuFooter.style.display = "flex";
   }
 }
-hardBtn.addEventListener("click", () => {
-  slumpatOrd = slumpaHardOrd();
-  selectScreen.classList.remove("show");
-  gameScreen.classList.add("show-game");
-  playerScore.innerText = totalGuesses;
-  RandomWord();
-  console.log(slumpatOrd);
-});
-
-easyBtn.addEventListener("click", () => {
-  slumpatOrd = slumpmassigtOrd();
-  selectScreen.classList.remove("show");
-  gameScreen.classList.add("show-game");
-  playerScore.innerText = totalGuesses;
-  RandomWord();
-  console.log(slumpatOrd);
-});
-
 const userName = document.querySelector("#user-input");
 const inputName = "Username";
 const playerName = document.querySelector("#user-name");
@@ -90,6 +72,55 @@ try {
 } catch {
   console.log("Nåt gick fel. Försök spara igen.");
 }
+
+easyBtn.addEventListener("click", () => {
+  let user = userName.value.trim(); // Trimma bort eventuella mellanslag i början och slutet av strängen
+
+  if (user === "") {
+    alert("Ange ett giltigt användarnamn!"); // Visa ett meddelande om användaren inte angett ett namn
+    return;
+  }
+  //   let user = userName.value;
+  let data = {
+    user: user,
+  };
+  userScoreTop.username = user;
+  playerName.innerText = userName.value;
+  let json = JSON.stringify(data);
+
+  localStorage.setItem(inputName, json);
+  slumpatOrd = slumpmassigtOrd();
+  selectScreen.classList.remove("show");
+  gameScreen.classList.add("show-game");
+  playerScore.innerText = totalGuesses;
+  RandomWord();
+  console.log(slumpatOrd);
+});
+
+hardBtn.addEventListener("click", () => {
+  let user = userName.value.trim();
+
+  if (user === "") {
+    alert("Ange ett giltigt användarnamn!");
+    return;
+  }
+
+  let data = {
+    user: user,
+  };
+  userScoreTop.username = user;
+  playerName.innerText = userName.value;
+  let json = JSON.stringify(data);
+
+  localStorage.setItem(inputName, json);
+  slumpatOrd = slumpaHardOrd();
+  selectScreen.classList.remove("show");
+  gameScreen.classList.add("show-game");
+  playerScore.innerText = totalGuesses;
+  RandomWord();
+  console.log(slumpatOrd);
+});
+
 for (let i = 0; i < words.length; i++) {
   const currentWord = words[i];
   if (currentWord.length >= 10 && currentWord.length <= 13) {
@@ -98,6 +129,7 @@ for (let i = 0; i < words.length; i++) {
     svåraOrd.push(currentWord);
   }
 }
+// console.log(lattaOrd);
 
 function slumpmassigtOrd() {
   const index = Math.floor(Math.random() * lattaOrd.length);
@@ -117,7 +149,7 @@ var container = document.querySelector("#the-word");
 let totalGuesses = 0;
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
-    const pressedChar = event.key.toUpperCase(); 
+    const pressedChar = event.key.toUpperCase();
 
     const isLetter = pressedChar >= "A" && pressedChar <= "Ö";
 
@@ -197,7 +229,7 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = false;
     userScoreTop.date = fullFormattedDateTime;
-    goBack.style.visibility = 'hidden'
+    goBack.style.visibility = "hidden";
     // userScoreTop.date = formattedTime;
     highScoreListan();
   }
@@ -210,7 +242,7 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.length = wordArray.length;
     userScoreTop.status = gameStatus = true;
     userScoreTop.date = fullFormattedDateTime;
-    goBack.style.visibility = 'hidden'
+    goBack.style.visibility = "hidden";
 
     // userScoreTop.date = formattedTime;
     highScoreListan();
@@ -222,8 +254,6 @@ const FinnsInGame = (button, clickedLetter) => {
 const restartGame = document.querySelector("#menu-item-restart");
 const rulesGame = document.querySelector("#menu-item-rules");
 const quitGame = document.querySelector("#menu-item-quit");
-
-
 
 restartGame.addEventListener("click", () => {
   quitResetGame();
@@ -241,7 +271,7 @@ function quitResetGame() {
   count = 0;
   totalGuesses = 0;
   correctGuesses = 0;
-  goBack.style.visibility = 'visible'
+  goBack.style.visibility = "visible";
   countDisplay.textContent = count;
   // Reset hangbot image
   hangbotImg.src = "img/the-hangbot-0.png";
@@ -276,4 +306,3 @@ function quitResetGame() {
 
 // adjustFooterPlacement();
 // window.addEventListener("resize", adjustFooterPlacement);
-
