@@ -249,6 +249,8 @@ const restartGame = document.querySelector("#menu-item-restart");
 const rulesGame = document.querySelector("#menu-item-rules");
 const quitGame = document.querySelector("#menu-item-quit");
 
+
+
 restartGame.addEventListener("click", () => {
   quitResetGame();
   selectScreen.classList.add("show");
@@ -287,21 +289,17 @@ function quitResetGame() {
   topListScreen.style.display = "none";
 }
 
-// Denna kod gör så att footer hoppar in i main när den är större än 900px
-const footer = document.querySelector("footer");
-const main = document.querySelector("main");
+// const footer = document.querySelector(".menu");
+// const main = document.querySelector("main");
 
-function adjustFooterPlacement() {
-  if (window.innerWidth > 900) {
-    // Move footer inside main for larger screens
-    main.appendChild(footer);
-  } else {
-    // Move footer outside main for smaller screens
-    document.body.appendChild(footer);
-  }
-}
+// function adjustFooterPlacement() {
+//   if (window.innerWidth > 900) {
+//     main.appendChild(footer);
+//   } else {
+//     document.body.appendChild(footer);
+//   }
+// }
 
-// Call the function initially and on window resize
-adjustFooterPlacement();
-window.addEventListener("resize", adjustFooterPlacement);
+// adjustFooterPlacement();
+// window.addEventListener("resize", adjustFooterPlacement);
 

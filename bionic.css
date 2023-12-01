@@ -15,12 +15,16 @@ body {
 }
 
 main {
-    height: 90vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .hangman-gif {
-    height: 500px;
-    margin-bottom: 2em;
+    height: 450px;
+    margin-bottom: 1.5em;
 }
 
 .img-section {
@@ -38,7 +42,7 @@ h1 {
     font-weight: 200;
     text-align: center;}
 h2 {    
-    margin-bottom: 1.6em;
+    margin-bottom: 1.2em;
     font-weight: 300;
     font-size: 1.2em;
 }
@@ -59,9 +63,9 @@ h2 {
 
 .play-btn:hover {
     color: #F7EBEC;
-    background: #35ff69;
+    background: #68edc6;
     transition: 0.1s;
-    border-color: #35ff69;
+    border-color: #68edc6;
 }
 
 /* Gung-effekt */
