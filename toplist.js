@@ -117,3 +117,23 @@ sortByDate.forEach((button) => {
     createNewHighScore();
   });
 });
+
+const sortByWrong = document.querySelectorAll('.wrong-sort-btn')
+
+function compareByWrong(a, b) {
+
+  if (a.wrong < b.wrong) {
+    return -1;
+  } else if (a.wrong > b.wrong) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+sortByWrong.forEach((button) => {
+  button.addEventListener("click", () => {
+    console.log("click 2");
+    existingHighScoreList.sort(compareByWrong);
+    createNewHighScore();
+  });
+});
