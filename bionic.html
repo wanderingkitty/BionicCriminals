@@ -1,153 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Hangman Game</title>
-        <script type="module" src="bionic.js"></script>
-        <script type="module" src="svenska-ord.js"></script>
-        <link rel="stylesheet" href="bionic.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="stylesheet" href="/selection.css" />
-        <link rel="stylesheet" href="/game.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="media-queries.css" />
-    </head>
-    <body>
-        <main>
-            <section class="start-screen" id="start-display">
-                <div class="img-section">
-                    <img
-                        class="hangman-gif swing"
-                        src="img/hangbot-fp.png"
-                        alt="hangman getting hanged"
-                    />
-                </div>
-                <h1>HANGBOT</h1>
-                <h2>the game</h2>
-                <button class="play-btn">START</button>
-            </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+    <script type="module" src="bionic.js"></script>
+    <script type="module" src="svenska-ord.js"></script>
+    <link rel="stylesheet" href="bionic.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/selection.css" />
+    <link rel="stylesheet" href="/game.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="media-queries.css" />
+  </head>
+  <body>
+    <main>
+      <section class="start-screen" id="start-display">
+        <div class="img-section">
+          <img
+            class="hangman-gif swing"
+            src="img/hangbot-fp.png"
+            alt="hangman getting hanged" />
+        </div>
+        <h1>HANGBOT</h1>
+        <h2>the game</h2>
+        <button class="play-btn">START</button>
+      </section>
 
-            <section class="selection-page" id="selection">
-                <label for="user-input"> Användarnamn </label>
-                <input id="user-input" maxlength="8" type="text" required />
-                <!-- <div class="save-btn">
+      <section class="selection-page" id="selection">
+        <label for="user-input"> Användarnamn </label>
+        <input id="user-input" maxlength="8" type="text" required />
+        <!-- <div class="save-btn">
             <button>SPARA</button>
         </div> -->
-                <div class="level-btn">
-                    <button id="try-btn">Medium</button>
-                    <button id="hard-btn">Svår</button>
-                </div>
-                <div class="selection-page-text">
-                    <div>
-                        <h2>Rädda MR Hangbot</h2>
-                        <p>
-                            Ditt mål är att gissa rätt ord för att MR Hangbott
-                            inte ska bli hängd. Han gillar inte att bli hängd.
-                        </p>
-                    </div>
-                    <div>
-                        <h2>Svårighetsgrad</h2>
-                        <p>
-                            Lätt svårighetsgrad innefattar ord med 10 eller mer
-                            bokstäver medans svår har mindre än 10 bokstäver.
-                        </p>
-                    </div>
-                    <!-- <h2>Topplistan</h2>
+        <div class="level-btn">
+          <button id="try-btn">Medium</button>
+          <button id="hard-btn">Svår</button>
+        </div>
+        <div class="selection-page-text">
+          <div>
+            <h2>Rädda MR Hangbot</h2>
+            <p>
+              Ditt mål är att gissa rätt ord för att MR Hangbott inte ska bli
+              hängd. Han gillar inte att bli hängd.
+            </p>
+          </div>
+          <div>
+            <h2>Svårighetsgrad</h2>
+            <p>
+              Lätt svårighetsgrad innefattar ord med 10 eller mer bokstäver
+              medans svår har mindre än 10 bokstäver.
+            </p>
+          </div>
+          <!-- <h2>Topplistan</h2>
         <p> Utmana dina vänner och försök att klara spelet med så få fel gissningar som möjligt. Lycka till!</p> -->
-                </div>
-            </section>
-            <section class="game-screen" id="game-screen">
-                <div class="user-score">
-                    <p id="user-name"></p>
+        </div>
+      </section>
+      <section class="game-screen" id="game-screen">
+        <div class="user-score">
+          <p id="user-name"></p>
 
-                    <p class="guesses">Fel: <span class="count">0</span>/6</p>
-                </div>
-                <div class="hangman-section">
-                    <img class="hangman" src="img/the-hangbot-0.png" alt="" />
-                    <div id="the-word"></div>
-                    <div id="keyboard"></div>
-                </div>
-            </section>
-            <section class="game-over-screen game-over-screen-show">
-                <div class="img-section">
-                    <img
-                        class="hangman-gif swing"
-                        src="img/the-hangbot-loosing-page.png"
-                        alt="hangman getting hanged"
-                    />
-                </div>
-                <div class="game-over-text-container">
-                    <h1>Du förlorade!</h1>
-                    <p>Bättre lycka nästa gång.</p>
-                    <p>Ordet var: <span id="game-over-word"></span></p>
-                </div>
-            </section>
-            <section class="top-list-container">
-                <div class="back-top-container">
-                    <button id="tillbaka-btn">
-                        <img src="./img/turn-back.png" alt="" />Tillbaka
-                    </button>
-                </div>
-                <h1>Topplista</h1>
+          <p class="guesses">Fel: <span class="count">0</span>/6</p>
+        </div>
+        <div class="hangman-section">
+          <img class="hangman" src="img/the-hangbot-0.png" alt="" />
+          <div id="the-word"></div>
+          <div id="keyboard"></div>
+        </div>
+      </section>
+      <section class="game-over-screen game-over-screen-show">
+        <div class="img-section">
+          <img
+            class="hangman-gif swing"
+            src="img/the-hangbot-loosing-page.png"
+            alt="hangman getting hanged" />
+        </div>
+        <div class="game-over-text-container">
+          <h1>Du förlorade!</h1>
+          <p>Bättre lycka nästa gång.</p>
+          <p>Ordet var: <span id="game-over-word"></span></p>
+        </div>
+      </section>
+      <section class="top-list-container">
+        <div class="back-top-container">
+          <button id="tillbaka-btn">
+            <img src="./img/turn-back.png" alt="" />Tillbaka
+          </button>
+        </div>
+        <h1>Topplista</h1>
 
-                <p class="user-information bold">
-                    <span>Namn</span> <span class="width bold">Vinst</span
-                    ><span class="width bold">Längd</span
-                    ><span class="width bold">Fel</span>
-                    <span class="width"
-                        ><button class="date-sort">Tid</button></span
-                    >
-                </p>
-                <ol class="ordered-top-list"></ol>
-                <div class="top-hangman">
-                    <!-- <img src="/img/Group 1 (1).png" alt=""> -->
-                </div>
-                <div class="high-score"></div>
-            </section>
-            <section class="winner-screen winner-screen-show">
-                <div class="winner-img-section">
-                    <img
-                        src="img/the-hangbot-winning-page.png"
-                        alt="hangman getting hanged"
-                    />
-                </div>
-                <div class="winner-text-container">
-                    <h1>Du vann!</h1>
-                    <p>
-                        Grattis du klarade spelet på
-                        <span id="user-points"></span> antal gissningar.
-                    </p>
-                    <p>Ordet var: <span id="winner-word"></span></p>
-                </div>
-            </section>
-            <section>
-                <div class="menu">
-                    <button id="menu-item-restart" class="menu-item-style">
-                        <img src="img/symbol-restart.png" alt="" />
-                        <p>Starta om</p>
-                    </button>
+        <p class="user-information bold">
+          <span>Namn</span> <span class="width bold">Vinst</span
+          ><span class="width bold">Längd</span
+          ><span class="width bold">Fel</span>
+          <span class="width"><button class="date-sort">Tid</button></span>
+        </p>
+        <ol class="ordered-top-list"></ol>
+        <div class="top-hangman">
+          <!-- <img src="/img/Group 1 (1).png" alt=""> -->
+        </div>
+        <div class="high-score"></div>
+      </section>
+      <section class="winner-screen winner-screen-show">
+        <div class="winner-img-section">
+          <img
+            src="img/the-hangbot-winning-page.png"
+            alt="hangman getting hanged" />
+        </div>
+        <div class="winner-text-container">
+          <h1>Du vann!</h1>
+          <p>
+            Grattis du klarade spelet på
+            <span id="user-points"></span> antal gissningar.
+          </p>
+          <p>Ordet var: <span id="winner-word"></span></p>
+        </div>
+      </section>
+      <section>
+        <div class="menu">
+          <button id="menu-item-restart" class="menu-item-style">
+            <img src="img/symbol-restart.png" alt="" />
+            <p>Starta om</p>
+          </button>
 
-                    <button id="menu-item-high" class="menu-item-style">
-                        <img src="img/symbol-high-score.png" alt="" />
-                        <p>Topplista</p>
-                    </button>
-                    <button id="menu-item-quit" class="menu-item-style">
-                        <img src="img/symbol-quit.png" alt="" />
-                        <p>Avsluta</p>
-                    </button>
-                </div>
-            </section>
-        </main>
-    </body>
+          <button id="menu-item-high" class="menu-item-style">
+            <img src="img/symbol-high-score.png" alt="" />
+            <p>Topplista</p>
+          </button>
+          <button id="menu-item-quit" class="menu-item-style">
+            <img src="img/symbol-quit.png" alt="" />
+            <p>Avsluta</p>
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
