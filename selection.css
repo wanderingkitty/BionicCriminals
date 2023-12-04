@@ -87,7 +87,7 @@ label {
 
 .level-btn > button:hover {
   color: #f7ebec;
-  background: #68edc6;
+  background: linear-gradient(#68edc6, #31c89b);
   transition: 0.1s;
   border-color: #68edc6;
 }

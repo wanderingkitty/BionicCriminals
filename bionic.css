@@ -63,7 +63,8 @@ h2 {
 
 .play-btn:hover {
     color: #F7EBEC;
-    background: #68edc6;
+    /* background-image: #68edc6; */
+    background: linear-gradient(#68edc6, #31c89b);
     transition: 0.1s;
     border-color: #68edc6;
 }
