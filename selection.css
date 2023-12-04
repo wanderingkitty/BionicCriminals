@@ -5,23 +5,13 @@
 .selection-page {
   display: flex;
   flex-direction: column;
-  /* background-color:rgba(255, 255, 255, 0.0); */
   padding-left: 3em;
   padding-right: 3em;
-  /* padding-top: 5em; */
-  /* padding-bottom: 5em; */
-  /* align-items:center; */
   border-radius: 6px;
   justify-content: center;
   text-align: center;
   display: none;
-  /* background-image: url(img/robo-about-page.png);
-   background-position-y: -200px;
-  background-position-x: -180px; 
-  background-size: 130%;  */
   background-repeat: no-repeat;
-
-  /* height: 100vh; */
 }
 
 label {
@@ -31,7 +21,6 @@ label {
 
 .selection-page-text {
 	padding-top: 0.8em;
-	/* background-color: rgba(255, 255, 255, 0.1); */
 	border-radius: 6px;
 }
 .selection-page h2 {
@@ -110,7 +99,6 @@ label {
   padding: 0;
   color: #f7ebec;
   cursor: pointer;
-  /* overflow: hidden; */
   transition: transform 0.3s;
 }
 

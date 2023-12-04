@@ -49,8 +49,6 @@ function highScoreListan(list) {
   };
   existingHighScoreList.push(newHighScore);
   existingHighScoreList.sort((a, b) => a.wrong - b.wrong);
-
-  // Update local storage with the modified list
   localStorage.setItem("highScoreList", JSON.stringify(existingHighScoreList));
 }
 
@@ -70,13 +68,13 @@ function createNewHighScore() {
       const img = document.createElement("img");
       img.src = "img/symbol-win_1.png";
       img.alt = "Vinst";
-      statusUser.innerHTML = ""; // Clear any existing content
+      statusUser.innerHTML = ""; 
       statusUser.appendChild(img);
     } else {
       const img = document.createElement("img");
       img.src = "img/symbol-loose_1.png";
       img.alt = "Förlust";
-      statusUser.innerHTML = ""; // Clear any existing content
+      statusUser.innerHTML = ""; 
       statusUser.appendChild(img);
     }
     dateUser.innerText = highScore.date;

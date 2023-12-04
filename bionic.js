@@ -74,13 +74,12 @@ try {
 }
 
 easyBtn.addEventListener("click", () => {
-  let user = userName.value.trim(); // Trimma bort eventuella mellanslag i början och slutet av strängen
+  let user = userName.value.trim();
 
   if (user === "") {
-    alert("Ange ett giltigt användarnamn!"); // Visa ett meddelande om användaren inte angett ett namn
+    alert("Ange ett giltigt användarnamn!"); 
     return;
   }
-  //   let user = userName.value;
   let data = {
     user: user,
   };
@@ -129,7 +128,6 @@ for (let i = 0; i < words.length; i++) {
     svåraOrd.push(currentWord);
   }
 }
-// console.log(lattaOrd);
 
 function slumpmassigtOrd() {
   const index = Math.floor(Math.random() * lattaOrd.length);
@@ -140,11 +138,7 @@ function slumpaHardOrd() {
   const mix = Math.floor(Math.random() * svåraOrd.length);
   return svåraOrd[mix].toUpperCase();
 }
-// const slumpaHard = slumpaHardOrd();
 
-// const slumpatOrd = slumpmassigtOrd();
-
-// Get the container element where you want to display the letters
 var container = document.querySelector("#the-word");
 let totalGuesses = 0;
 document.addEventListener("keydown", (event) => {
@@ -177,11 +171,9 @@ const winnerWord = document.querySelector("#winner-word");
 let correctGuesses = 0;
 let gameStatus = false;
 let scoreTime = new Date();
-// let currentDate = new Date();
 
-// Get the individual components: day, month, and year
 let day = scoreTime.getDate();
-let month = scoreTime.getMonth() + 1; // Months are zero-based, so add 1
+let month = scoreTime.getMonth() + 1; 
 let year = scoreTime.getFullYear();
 
 let formattedTime = scoreTime.toLocaleTimeString("sv-SE", { hour12: false });
@@ -230,7 +222,6 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.status = gameStatus = false;
     userScoreTop.date = fullFormattedDateTime;
     goBack.style.visibility = "hidden";
-    // userScoreTop.date = formattedTime;
     highScoreListan();
   }
   if (correctGuesses === wordArray.length) {
@@ -243,14 +234,11 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.status = gameStatus = true;
     userScoreTop.date = fullFormattedDateTime;
     goBack.style.visibility = "hidden";
-
-    // userScoreTop.date = formattedTime;
     highScoreListan();
   }
 };
 
 // Button
-// const restartGame = document.querySelector("#menu-item-restart");
 const restartGame = document.querySelector("#menu-item-restart");
 const rulesGame = document.querySelector("#menu-item-rules");
 const quitGame = document.querySelector("#menu-item-quit");
@@ -273,10 +261,8 @@ function quitResetGame() {
   correctGuesses = 0;
   goBack.style.visibility = "visible";
   countDisplay.textContent = count;
-  // Reset hangbot image
   hangbotImg.src = "img/the-hangbot-0.png";
 
-  // Enable all keyboard buttons and remove classes
   keyButtons.forEach((item) => {
     item.button.disabled = false;
     item.button.classList.remove(
@@ -286,23 +272,8 @@ function quitResetGame() {
     );
   });
   container.innerHTML = "";
-  //   startScreen.classList.remove("hide");
   selectScreen.classList.remove("show");
   gameScreen.classList.remove("show-game");
   menuFooter.style.display = "none";
   topListScreen.style.display = "none";
 }
-
-// const footer = document.querySelector(".menu");
-// const main = document.querySelector("main");
-
-// function adjustFooterPlacement() {
-//   if (window.innerWidth > 900) {
-//     main.appendChild(footer);
-//   } else {
-//     document.body.appendChild(footer);
-//   }
-// }
-
-// adjustFooterPlacement();
-// window.addEventListener("resize", adjustFooterPlacement);

@@ -1,12 +1,3 @@
-/* @media only screen and (min-width: 400px) and (max-width: 600px) {
-    .hangman-section {
-        padding: 0em;
-      }
-} */
-
-
-
-
 /* Media query for screens larger than 901 pixels */
 @media only screen and (min-width: 601px) {
     /* FP / Body / Resets / Fonts etc */
@@ -32,7 +23,6 @@
         background-position-x: -130px; 
         background-size: 95%; 
         background-repeat: no-repeat;
-  
     }
 
     .selection-page label {
@@ -42,22 +32,22 @@
     .selection-page input {
         max-width: 300px;
         margin: 0 auto;
-      }
+    }
     
       
-      .selection-page-text {
+    .selection-page-text {
         padding-top: 0.8em;
         max-width: 500px;
         margin: 0 auto;
         display: flex;
         padding-left: 0;
         padding-right: 0;
-      }
+    }
 
-      .selection-page-text p {
+    .selection-page-text p {
         padding: 0 1em;
         
-      }
+    }
    
 
     /* GAME SCREEN/ WINNING/ LOOSING/ TOPLIST PAGE */
@@ -66,8 +56,6 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
   }
-
-
   .hangman {
     width: 50%;
     margin: 0 auto;
@@ -83,14 +71,11 @@
     width: 2.5em;
     height: 2.5em;
   }
-
   .game-screen {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
-  
   }
-
   .user-score {
     padding-left: 3.5em;
     padding-right: 3.5em;
@@ -98,9 +83,9 @@
 
   .game-over-screen,
     .winner-screen {
-  display: none;
-  flex-direction: column;
-}
+    display: none;
+    flex-direction: column;
+  }
 
 .winner-img-section img {
     margin-bottom:  0;
