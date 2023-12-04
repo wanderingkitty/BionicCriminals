@@ -77,7 +77,7 @@ easyBtn.addEventListener("click", () => {
   let user = userName.value.trim();
 
   if (user === "") {
-    alert("Ange ett giltigt användarnamn!"); 
+    alert("Ange ett giltigt användarnamn!");
     return;
   }
   let data = {
@@ -164,25 +164,25 @@ let count = 0;
 const hangbotImg = document.querySelector(".hangman");
 const countDisplay = document.querySelector(".count");
 const playerScore = document.querySelector("#user-points");
+const winnerScore = document.querySelector("#user-points-winner");
 const gameOverScreen = document.querySelector(".game-over-screen");
 const gameOverWord = document.querySelector("#game-over-word");
 const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
 let correctGuesses = 0;
 let gameStatus = false;
-let scoreTime = new Date();
-
-let day = scoreTime.getDate();
-let month = scoreTime.getMonth() + 1; 
-let year = scoreTime.getFullYear();
-
-let formattedTime = scoreTime.toLocaleTimeString("sv-SE", { hour12: false });
-let [hours, minutes] = formattedTime.split(":");
-
-let formattedDate = `${day}/${month}/${year}`;
-let fullFormattedDateTime = `${formattedDate} ${hours}:${minutes}`;
-
 const FinnsInGame = (button, clickedLetter) => {
+  let scoreTime = new Date();
+
+  let day = scoreTime.getDate();
+  let month = scoreTime.getMonth() + 1;
+  let year = scoreTime.getFullYear();
+
+  let formattedTime = scoreTime.toLocaleTimeString("sv-SE", { hour12: false });
+  let [hours, minutes] = formattedTime.split(":");
+
+  let formattedDate = `${day}/${month}/${year}`;
+  let fullFormattedDateTime = `${formattedDate} ${hours}:${minutes}`;
   let foundInWord = false;
 
   let paragraph = document.querySelector("#the-word");
@@ -225,7 +225,7 @@ const FinnsInGame = (button, clickedLetter) => {
     highScoreListan();
   }
   if (correctGuesses === wordArray.length) {
-    playerScore.innerText = totalGuesses;
+    winnerScore.innerText = totalGuesses;
     userScoreTop.wrong = count;
     winnerScreen.style.display = "flex";
     gameScreen.classList.remove("show-game");
@@ -277,3 +277,5 @@ function quitResetGame() {
   menuFooter.style.display = "none";
   topListScreen.style.display = "none";
 }
+console.log("formattedTime:", formattedTime);
+console.log("fullFormattedDateTime:", fullFormattedDateTime);
