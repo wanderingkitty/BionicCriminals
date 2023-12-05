@@ -13,21 +13,25 @@
         border-radius: 6px;
         margin-top: 1em;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        height: 95vh;
+        /* height: 95vh; */
       }
     
     /* Selection screen */
     .selection-page {
-        background-image: url(img/robo-about-page.png);
-        background-position-y: -230px;
-        background-position-x: -130px; 
-        background-size: 95%; 
-        background-repeat: no-repeat;
+        /* background-image: url(img/robo-about-page.png);
+        background-position-y: -250px;
+        background-position-x: -100px; 
+        background-size: 85%; 
+        background-repeat: no-repeat; */
+        height: 100%;
+        justify-content: center;
     }
+
+   
 
     .selection-page label {
         padding-bottom: 1em;
-        padding-top: 14em;
+        padding-top: 3em;
     }
     .selection-page input {
         max-width: 300px;
@@ -42,6 +46,7 @@
         display: flex;
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 2em;
     }
 
     .selection-page-text p {
@@ -52,14 +57,25 @@
 
     /* GAME SCREEN/ WINNING/ LOOSING/ TOPLIST PAGE */
   #keyboard {
-    margin: 0.5em 0em 1em 0em;
+    margin-bottom: 1em;
     padding-left: 0.5em;
     padding-right: 0.5em;
+    padding-top: 1em;
   }
   .hangman {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
   }
+
+  .hangman-gif {
+    height: 300px;
+  }
+
+  .ordered-top-list {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+
   .hangman-section {
     padding: 1em 2em 0em 2em;
   }
