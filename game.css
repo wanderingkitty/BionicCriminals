@@ -32,7 +32,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0 2em;
-  padding-top: 2em;
+  padding-top: 1.3em;
 }
 
 #the-word {
@@ -113,7 +113,7 @@
 }
 
 .menu {
-  padding: 1em 2em 0em 2em;
+  padding: 2em 2em 0em 2em;
   display: none;
   flex-direction: row;
   justify-content: space-around;
