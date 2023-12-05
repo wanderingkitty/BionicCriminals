@@ -15,7 +15,3 @@ Build a fully functional Hangman game including:
 -   To save the local data and to be able to sort it
 -   Make the game responsive and function well on different devices.
 -   Everything shupposed to be uploaded on GitHub
-
-## Results
-
-Our process was based on a colaboration
