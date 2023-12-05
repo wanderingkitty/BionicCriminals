@@ -2,10 +2,10 @@ export { userScoreTop };
 
 // Toplist page
 import { gameScreen, gameOverScreen, winnerScreen } from "./bionic.js";
-import { correctGuesses, count, FinnsInGame } from "./bionic.js";
+import { correctGuesses, count, wordExistsInGame } from "./bionic.js";
 export { createNewHighScore };
 export { topListScreen };
-export { highScoreListan };
+export { highScoreList };
 export { goBack };
 const topListScreen = document.querySelector(".top-list-container");
 const topButton = document.querySelector("#menu-item-high");
@@ -38,7 +38,7 @@ topButton.addEventListener("click", () => {
   winnerScreen.style.display = "none";
   createNewHighScore();
 });
-function highScoreListan(list) {
+function highScoreList(list) {
   const username = userScoreTop.username;
   const newHighScore = {
     name: username,

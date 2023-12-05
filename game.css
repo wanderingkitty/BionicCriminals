@@ -113,7 +113,7 @@
 }
 
 .menu {
-  padding: 0 2em;
+  padding: 1em 2em 0em 1em;
   display: none;
   flex-direction: row;
   justify-content: space-around;

@@ -1,10 +1,10 @@
-import { topListScreen, userScoreTop, highScoreListan } from "./toplist.js";
+import { topListScreen, userScoreTop, highScoreList } from "./toplist.js";
 import { words } from "./svenska-ord.js";
 import { goBack } from "./toplist.js";
 export { winnerScreen };
 export { gameOverScreen };
 export { gameScreen };
-export { FinnsInGame };
+export { wordExistsInGame };
 export { gameStatus };
 export { correctGuesses };
 export { count };
@@ -28,7 +28,7 @@ for (let charCode of [
     button.disabled = true;
     totalGuesses++;
     initGame(e.target, String.fromCharCode(charCode));
-    FinnsInGame(e.target, String.fromCharCode(charCode));
+    wordExistsInGame(e.target, String.fromCharCode(charCode));
   });
   keyButtons.push({ button, char: String.fromCharCode(charCode) });
 }
@@ -37,8 +37,8 @@ const playBtn = document.querySelector(".play-btn");
 const startScreen = document.querySelector("#start-display");
 const selectScreen = document.querySelector("#selection");
 const gameScreen = document.querySelector("#game-screen");
-const lattaOrd = [];
-const svåraOrd = [];
+const easyWordList = [];
+const hardWordList = [];
 
 playBtn.addEventListener("click", () => {
   startScreen.classList.add("hide");
@@ -52,7 +52,7 @@ const hardBtn = document.querySelector("#hard-btn");
 let paragraph;
 
 function RandomWord() {
-  for (var i = 0; i < slumpatOrd.length; i++) {
+  for (let i = 0; i < slumpatOrd.length; i++) {
     paragraph = document.createElement("p");
     paragraph.textContent = slumpatOrd[i];
     container.appendChild(paragraph);
@@ -123,23 +123,23 @@ hardBtn.addEventListener("click", () => {
 for (let i = 0; i < words.length; i++) {
   const currentWord = words[i];
   if (currentWord.length >= 10 && currentWord.length <= 13) {
-    lattaOrd.push(currentWord);
+    easyWordList.push(currentWord);
   } else if (currentWord.length < 10) {
-    svåraOrd.push(currentWord);
+    hardWordList.push(currentWord);
   }
 }
 
 function slumpmassigtOrd() {
-  const index = Math.floor(Math.random() * lattaOrd.length);
-  return lattaOrd[index].toUpperCase();
+  const index = Math.floor(Math.random() * easyWordList.length);
+  return easyWordList[index].toUpperCase();
 }
 
 function slumpaHardOrd() {
-  const mix = Math.floor(Math.random() * svåraOrd.length);
-  return svåraOrd[mix].toUpperCase();
+  const mix = Math.floor(Math.random() * hardWordList.length);
+  return hardWordList[mix].toUpperCase();
 }
 
-var container = document.querySelector("#the-word");
+let container = document.querySelector("#the-word");
 let totalGuesses = 0;
 document.addEventListener("keydown", (event) => {
   if (gameScreen.classList.contains("show-game")) {
@@ -154,7 +154,7 @@ document.addEventListener("keydown", (event) => {
         button.button.disabled = true;
         button.button.classList.add("key-disable");
         initGame(button.button, pressedChar);
-        FinnsInGame(button.button, pressedChar);
+        wordExistsInGame(button.button, pressedChar);
       }
     }
   }
@@ -171,7 +171,7 @@ const winnerScreen = document.querySelector(".winner-screen");
 const winnerWord = document.querySelector("#winner-word");
 let correctGuesses = 0;
 let gameStatus = false;
-const FinnsInGame = (button, clickedLetter) => {
+const wordExistsInGame = (button, clickedLetter) => {
   let scoreTime = new Date();
 
   let day = scoreTime.getDate();
@@ -222,7 +222,7 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.status = gameStatus = false;
     userScoreTop.date = fullFormattedDateTime;
     goBack.style.visibility = "hidden";
-    highScoreListan();
+    highScoreList();
   }
   if (correctGuesses === wordArray.length) {
     winnerScore.innerText = totalGuesses;
@@ -234,7 +234,7 @@ const FinnsInGame = (button, clickedLetter) => {
     userScoreTop.status = gameStatus = true;
     userScoreTop.date = fullFormattedDateTime;
     goBack.style.visibility = "hidden";
-    highScoreListan();
+    highScoreList();
   }
 };
 
@@ -277,5 +277,3 @@ function quitResetGame() {
   menuFooter.style.display = "none";
   topListScreen.style.display = "none";
 }
-console.log("formattedTime:", formattedTime);
-console.log("fullFormattedDateTime:", fullFormattedDateTime);
